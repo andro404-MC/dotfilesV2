@@ -1,0 +1,57 @@
+[manager]
+ratio           = [ 2, 3, 6 ]
+sort_by         = "alphabetical"
+sort_sensitive  = false
+sort_reverse    = false
+sort_dir_first  = true
+linemode        = "size"
+show_symlink    = false
+
+[preview]
+max_width = 800
+max_height = 800
+image_filter = "catmull-rom"
+# cache_dir = "~/.cache/yazi/"
+
+[plugin]
+previewers = [
+	{ name = "*/", run = "folder", sync = true },
+
+	# Code
+	{ mime = "text/*",                 run = "code" },
+	{ mime = "*/xml",                  run = "code" },
+	{ mime = "*/javascript",           run = "code" },
+	{ mime = "*/x-wine-extension-ini", run = "code" },
+
+	# JSON
+	{ mime = "application/json", run = "json" },
+
+	# Image
+	{ mime = "image/vnd.djvu", run = "noop" },
+	{ mime = "image/*",        run = "image" },
+	# { mime = "image/*",        run = "allmytoes" },
+
+	# Video
+	{ mime = "video/*", run = "video" },
+
+	# PDF
+	{ mime = "application/pdf", run = "pdf" },
+
+	# Archive
+	{ mime = "application/zip",             run = "archive" },
+	{ mime = "application/gzip",            run = "archive" },
+	{ mime = "application/x-tar",           run = "archive" },
+	{ mime = "application/x-bzip",          run = "archive" },
+	{ mime = "application/x-bzip2",         run = "archive" },
+	{ mime = "application/x-7z-compressed", run = "archive" },
+	{ mime = "application/x-rar",           run = "archive" },
+	{ mime = "application/xz",              run = "archive" },
+
+	# Fallback
+	{ name = "*", run = "file" },
+]
+
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+  { mime = "audio/*", run = "exifaudio" },
+]

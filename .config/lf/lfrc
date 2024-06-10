@@ -1,0 +1,43 @@
+set icons
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+set preview true
+set drawbox true
+set ignorecase true
+
+map n
+
+map . set hidden!
+map d trash
+map nf newfolder
+map c cut
+map x &{{nsxiv "$PWD" -r}}
+
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+
+  while [ "$files" ]; do
+    if [ $ans = "y" ]; then
+      file=${files%%;*}
+      trash-put "$(basename "$file")"
+      if [ "$files" = "$file" ]; then
+        files=''
+      else
+        files="${files#*;}"
+      fi
+    fi
+  done
+}}
+cmd newfolder ${{
+  clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "folder name : "
+	read ans
+
+  mkdir "$PWD/$ans"
+}}
