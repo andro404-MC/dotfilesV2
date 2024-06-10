@@ -1,0 +1,11 @@
+<device screen="0" driver="dri2">
+	<application name="chromium" executable="chromium">
+		<option name="vblank_mode" value="0"/>
+	</application>
+  <application name="thunderbird" executable="thunderbird">
+		<option name="vblank_mode" value="0"/>
+	</application>
+  <application name="electron" executable="electron">
+		<option name="vblank_mode" value="0"/>
+	</application>
+</device>
