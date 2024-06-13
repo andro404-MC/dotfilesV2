@@ -36,7 +36,7 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Alias
 alias ls="lsd -A --group-directories-first"
-alias ll="lsd -Al --color=always --group-directories-first"
+alias ll="eza -Al --color=always --group-directories-first"
 alias tree="eza --color=always --icons --tree"
 alias grep="rg"
 alias gtop="sudo intel_gpu_top"

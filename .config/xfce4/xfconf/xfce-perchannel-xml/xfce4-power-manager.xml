@@ -7,7 +7,7 @@
     <property name="hibernate-button-action" type="uint" value="1"/>
     <property name="handle-brightness-keys" type="bool" value="true"/>
     <property name="brightness-step-count" type="uint" value="20"/>
-    <property name="show-tray-icon" type="bool" value="false"/>
+    <property name="show-tray-icon" type="bool" value="true"/>
     <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
     <property name="inactivity-on-battery" type="uint" value="60"/>
     <property name="lid-action-on-battery" type="uint" value="1"/>
@@ -25,5 +25,7 @@
     <property name="brightness-switch" type="int" value="0"/>
     <property name="dpms-on-ac-sleep" type="uint" value="0"/>
     <property name="dpms-on-ac-off" type="uint" value="0"/>
+    <property name="general-notification" type="bool" value="false"/>
+    <property name="presentation-mode" type="bool" value="false"/>
   </property>
 </channel>
