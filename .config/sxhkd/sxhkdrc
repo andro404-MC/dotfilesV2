@@ -71,7 +71,7 @@ super + semicolon
 super + shift + equal
   killall picom
 super + shift + minus
-  picom --config ~/.config/picom/picom.conf -b 
+  picom --config ~/.config/picom/picom.conf 
 
 #############################
 ####### bspwm hotkeys #######

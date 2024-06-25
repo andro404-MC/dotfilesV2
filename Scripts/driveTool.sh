@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#! /usr/bin/env bash
 menu="mount\nunmount\npoweroff"
 notificationIco="$HOME/.local/share/icons/Papirus-Dark/16x16/panel/drive-removable-media-usb-panel.svg"
 

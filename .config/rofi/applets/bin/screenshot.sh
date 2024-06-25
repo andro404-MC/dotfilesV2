@@ -101,7 +101,7 @@ countdown () {
 
 # take shots
 shotnow () {
-	cd ${dir} && sleep 0.5 && maim -u -f png | copy_shot
+	cd ${dir} && sleep 0.3 && maim -u -f png | copy_shot
 	notify_view
 }
 

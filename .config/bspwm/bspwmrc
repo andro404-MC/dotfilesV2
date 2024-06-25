@@ -65,7 +65,7 @@ bspc rule -a thunderbird desktop='^10'
 # enable after update 
 /usr/bin/cp ~/.config/conky/Mimosa/scripts/rings-v1.2.1.lua /tmp
 /usr/bin/conky -c ~/.config/conky/Mimosa/Mimosa.conf &
-xsetroot -cursor_name left_ptr &
+/usr/bin/xsetroot -cursor_name left_ptr &
 /usr/bin/picom --config ~/.config/picom/picom.conf &
 /usr/bin/mpd --no-daemon &
 /usr/bin/otd-daemon &
@@ -74,7 +74,6 @@ xsetroot -cursor_name left_ptr &
 /usr/bin/xfce4-power-manager &
 /usr/bin/parcellite &
 /usr/bin/keepassxc &
-/usr/bin/discord --start-minimized &
-# /usr/bin/vesktop --start-minimized&
 /usr/bin/thunderbird &
+# /usr/bin/discord --start-minimized &
 /usr/bin/xss-lock -- betterlockscreen -l dimblur --quiet --off 5

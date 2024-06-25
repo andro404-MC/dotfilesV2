@@ -1,6 +1,6 @@
 [manager]
 ratio           = [ 2, 3, 6 ]
-sort_by         = "alphabetical"
+sort_by         = "natural"
 sort_sensitive  = false
 sort_reverse    = false
 sort_dir_first  = true
@@ -10,7 +10,7 @@ show_symlink    = false
 [preview]
 max_width = 800
 max_height = 800
-image_filter = "catmull-rom"
+image_filter = "triangle"
 # cache_dir = "~/.cache/yazi/"
 
 [plugin]

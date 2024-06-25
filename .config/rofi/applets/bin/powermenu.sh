@@ -7,6 +7,7 @@
 
 # Import Current Theme
 source "$HOME"/.config/rofi/applets/shared/theme.bash
+type=$HOME/.config/rofi/applets/type-2
 theme="$type/$style"
 
 # Theme Elements

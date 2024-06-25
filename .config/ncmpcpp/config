@@ -1,6 +1,7 @@
 autocenter_mode = "yes"
 mpd_music_dir = ~/Music/
 follow_now_playing_lyrics = "yes"
+lyrics_directory = ~/.local/share/lyrics
 ignore_leading_the = "yes"
 ignore_diacritics = "yes"
 default_place_to_search_in = "database"
@@ -36,12 +37,6 @@ alternative_header_second_line_format = "{{$4%b$9}{ [$8%y$9]}}|{$4%D$9}"
 
 ## Classic Interface ##
 song_status_format = " $6%a $7⟫⟫ $3%t $7⟫⟫ $4%b "
-
-## Visualizer ##
-visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_type = "spectrum"
-visualizer_in_stereo = "yes"
 
 ## Navigation ##
 cyclic_scrolling = "yes"
