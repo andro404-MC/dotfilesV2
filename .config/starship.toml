@@ -7,11 +7,11 @@ $git_state\
 $git_status \
 $cmd_duration\
 $line_break\
-$python\
 $character"""
 
 [directory]
 style = "blue"
+read_only = " 󰌾"
 
 [character]
 success_symbol = "[ 󰣇 ❯](#d5d6db)"
@@ -19,6 +19,7 @@ error_symbol = "[ 󰣇 ❯](#f7567e)"
 vimcmd_symbol = "[ 󰣇 ❮](#9ece6a)"
 
 [git_branch]
+symbol = " "
 format = "[$branch]($style)"
 style = "bright-black"
 
@@ -40,7 +41,3 @@ style = "bright-black"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "#ff9e64"
-
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"

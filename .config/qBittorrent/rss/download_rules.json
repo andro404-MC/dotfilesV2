@@ -68,41 +68,6 @@
         },
         "useRegex": false
     },
-    "KONOSUBA": {
-        "addPaused": null,
-        "affectedFeeds": [
-            "https://nyaa.si/?page=rss&q=+Kono+Subarashii+Sekai+ni+Shukufuku+wo+3+erai+1080+-hevc&c=0_0&f=0"
-        ],
-        "assignedCategory": "",
-        "enabled": true,
-        "episodeFilter": "",
-        "ignoreDays": 0,
-        "lastMatch": "19 Jun 2024 15:05:45 +0000",
-        "mustContain": "",
-        "mustNotContain": "",
-        "previouslyMatchedEpisodes": [
-        ],
-        "priority": 0,
-        "savePath": "/home/untemi/Videos/Anime/Kono Subarashii Sekai ni Shukufuku wo/Season 3",
-        "smartFilter": false,
-        "torrentContentLayout": null,
-        "torrentParams": {
-            "category": "",
-            "download_limit": -1,
-            "download_path": "",
-            "inactive_seeding_time_limit": -2,
-            "operating_mode": "AutoManaged",
-            "ratio_limit": -2,
-            "save_path": "/home/untemi/Videos/Anime/Kono Subarashii Sekai ni Shukufuku wo/Season 3",
-            "seeding_time_limit": -2,
-            "skip_checking": false,
-            "tags": [
-            ],
-            "upload_limit": -1,
-            "use_auto_tmm": false
-        },
-        "useRegex": false
-    },
     "MT": {
         "addPaused": null,
         "affectedFeeds": [

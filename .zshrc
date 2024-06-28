@@ -61,7 +61,7 @@ godoc() {
 }
 
 apt(){
-  echo "Bro we are not on Debian or Ubuntu or an shitty distro"
+  echo "Bro we are not on Debian or Ubuntu or a shitty distro"
   sleep 3
   echo "Wait are you fucking DUMB ???"
   sleep 2

@@ -40,7 +40,7 @@ bspc rule -a file-roller state=floating
 bspc rule -a Lxappearance state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Pcmanfm state=floating
-bspc rule -a Nemo state=floating
+# bspc rule -a Nemo state=floating
 bspc rule -a Audacious state=floating
 bspc rule -a qBittorrent state=floating
 bspc rule -a Engrampa state=floating
@@ -48,7 +48,11 @@ bspc rule -a Bulky.py state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Quigo state=floating
 
+bspc rule -a thunderbird:Mail:"About Mozilla Thunderbird" state=floating
+bspc rule -a firefox:Browser:"About Mozilla Firefox" state=floating
+
 bspc rule -a Surf state=tiled
+bspc rule -a Spotube state=tiled
 
 bspc rule -a firefox desktop='^1'
 bspc rule -a thunderbird desktop='^10'

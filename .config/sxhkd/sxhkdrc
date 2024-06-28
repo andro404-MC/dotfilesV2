@@ -35,15 +35,15 @@ super + g
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#  mpd control #
-# XF86AudioPlay
-#   mpc toggle
-# XF86AudioNext
-#   mpc next 
-# XF86AudioPrev
-#   mpc prev
-# shift + XF86AudioPlay
-#   playerctl pause -a && mpc pause
+ mpd control #
+XF86AudioPlay
+  playerctl play-pause
+XF86AudioNext
+  playerctl next 
+XF86AudioPrev
+  playerctl previous
+shift + XF86AudioPlay
+  playerctl pause -a && mpc pause
 
 # volume control #
 XF86AudioLowerVolume
