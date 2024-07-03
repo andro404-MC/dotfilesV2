@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="font-use-system" type="bool" value="false"/>
+  <property name="font-name" type="string" value="FantasqueSansM Nerd Font Mono 13"/>
+  <property name="run-custom-command" type="bool" value="true"/>
+  <property name="custom-command" type="string" value="/usr/bin/zsh"/>
+  <property name="misc-show-unsafe-paste-dialog" type="bool" value="true"/>
+  <property name="text-blink-mode" type="string" value="TERMINAL_TEXT_BLINK_MODE_ALWAYS"/>
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
+  <property name="background-darkness" type="double" value="0.93000000000000005"/>
+  <property name="color-use-theme" type="bool" value="false"/>
+  <property name="color-background-vary" type="bool" value="false"/>
+  <property name="misc-borders-default" type="bool" value="false"/>
+  <property name="misc-menubar-default" type="bool" value="false"/>
+  <property name="misc-confirm-close" type="bool" value="false"/>
+  <property name="color-background" type="string" value="#1a1a1b1b2626"/>
+  <property name="color-foreground" type="string" value="#a9a9b1b1d6d6"/>
+  <property name="color-palette" type="string" value="rgb(50,52,74);rgb(247,118,142);rgb(158,206,106);rgb(224,175,104);rgb(122,162,247);rgb(173,142,230);rgb(68,157,171);rgb(120,124,153);rgb(68,75,106);rgb(255,122,147);rgb(185,242,124);rgb(255,158,100);rgb(125,166,255);rgb(187,154,247);rgb(13,185,215);rgb(172,176,208)"/>
+</channel>

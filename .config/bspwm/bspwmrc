@@ -9,7 +9,7 @@
 #  ██████████ ████████ ██        ██████████████ ██
 
 #sxhkd
-export $(envsubst < .env)
+export $(envsubst < $HOME/.config/bspwm/env)
 setxkbmap -layout "gb" &&
 numlockx &
 pgrep -x sxhkd >/dev/null || sxhkd &

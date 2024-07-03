@@ -1,74 +1,35 @@
-autocenter_mode = "yes"
-mpd_music_dir = ~/Music/
-follow_now_playing_lyrics = "yes"
-lyrics_directory = ~/.local/share/lyrics
-ignore_leading_the = "yes"
-ignore_diacritics = "yes"
-default_place_to_search_in = "database"
-
-## Display Modes ##
-playlist_editor_display_mode = "columns"
-search_engine_display_mode = "columns"
-browser_display_mode = "columns"
+#vim: filetype=conf
+mpd_music_dir = "~/Music/"
+progressbar_look = "━━╸"
+allow_for_physical_item_deletion = "yes"
+ 
+message_delay_time = "0"
+playlist_shorten_total_times = "yes"
 playlist_display_mode = "columns"
-
-## General Colors ##
-colors_enabled = "yes"
-main_window_color = "white"
-header_window_color = "cyan"
-volume_color = "green"
-statusbar_color = "white"
-progressbar_color = "cyan"
-progressbar_elapsed_color = "white"
-
-## Song List ##
-song_columns_list_format = "(30)[yellow]{b} (30)[green]{t} (30)[magenta]{a} (10)[blue]{l}"
-song_list_format = "{$7%b - $9}{$5%t$9}|{$5%f$9}$R{$6%a $9}{$3%l$9}"
-
-## Current Item ##
-current_item_prefix = "$(blue)$r"
-current_item_suffix = "$/r$(end)"
-current_item_inactive_column_prefix = "$(cyan)$r"
-
-## Alternative Interface ##
-user_interface = "alternative"
-alternative_header_first_line_format = "$0$aqqu$/a {$6%a$9 - }{$3%t$9}|{$3%f$9} $0$atqq$/a$9"
-alternative_header_second_line_format = "{{$4%b$9}{ [$8%y$9]}}|{$4%D$9}"
-
-## Classic Interface ##
-song_status_format = " $6%a $7⟫⟫ $3%t $7⟫⟫ $4%b "
-
-## Navigation ##
-cyclic_scrolling = "yes"
-header_text_scrolling = "yes"
-jump_to_now_playing_song_at_start = "yes"
-lines_scrolled = "2"
-
-## Other ##
-system_encoding = "utf-8"
-regular_expressions = "extended"
-
-## Selected tracks ##
-selected_item_prefix = "* "
-discard_colors_if_item_is_selected = "yes"
-
-## Seeking ##
-incremental_seeking = "yes"
-seek_time = "1"
-
-## Visibility ##
-header_visibility = "yes"
-statusbar_visibility = "yes"
-titles_visibility = "yes"
-
-## Progress Bar ##
-progressbar_look =  "=>-"
-
-## Now Playing ##
-now_playing_prefix = "> "
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+autocenter_mode = "yes"
 centered_cursor = "yes"
-
-# Misc
+user_interface = "alternative"
+follow_now_playing_lyrics = "yes"
+locked_screen_width_part = "60"
 display_bitrate = "yes"
+external_editor = "nvim"
+use_console_editor = "yes"
+header_window_color = "cyan"
+volume_color = "red"
+state_line_color = "yellow"
+state_flags_color = "red"
+progressbar_color = "yellow"
+statusbar_color = "cyan"
+visualizer_color = "cyan" #magenta #cyan #green #red #blue
+ 
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mouse_list_scroll_whole_page = "yes"
+lines_scrolled = "1"
+#ask_before_clearing_main_playlist = "yes"
 enable_window_title = "yes"
-empty_tag_marker = ""
+song_columns_list_format = "(30)[cyan]{b} (30)[]{t} (30)[red]{a} (10)[green]{l}"
+song_list_format = "{$7%b - $9}{$5%t$9}|{$5%f$9}$R{$6%a $9}{$3%l$9}"

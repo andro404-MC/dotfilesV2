@@ -50,6 +50,9 @@ alias rm="trash"
 alias apt-get="apt"
 alias lf="lfub"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
+alias neofetch="fastfetch -c neofetch.jsonc"
+alias wsong="yt-dlp --audio-format mp3 -x"
+alias goclean="\rm /tmp/go-build* -r"
 
 # Functions
 keyb() {

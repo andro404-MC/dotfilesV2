@@ -8,19 +8,40 @@ function M:peek()
 
 	local child = Command("exiftool")
 		:args({
-			"-q", "-q", "-S", "-Title", "-SortName",
-			"-TitleSort", "-TitleSortOrder", "-Artist",
-			"-SortArtist", "-ArtistSort", "-PerformerSortOrder",
-			"-Album", "-SortAlbum", "-AlbumSort", "-AlbumSortOrder",
-			"-AlbumArtist", "-SortAlbumArtist", "-AlbumArtistSort",
-			"-AlbumArtistSortOrder", "-Genre", "-TrackNumber",
-			"-Year", "-Duration", "-SampleRate", 
-			"-AudioSampleRate", "-AudioBitrate", "-AvgBitrate",
-			"-Channels", "-AudioChannels", tostring(self.file.url),
+			"-q",
+			"-q",
+			"-S",
+			"-Title",
+			"-SortName",
+			"-TitleSort",
+			"-TitleSortOrder",
+			"-Artist",
+			"-SortArtist",
+			"-ArtistSort",
+			"-PerformerSortOrder",
+			"-Album",
+			"-SortAlbum",
+			"-AlbumSort",
+			"-AlbumSortOrder",
+			"-AlbumArtist",
+			"-SortAlbumArtist",
+			"-AlbumArtistSort",
+			"-AlbumArtistSortOrder",
+			"-Genre",
+			"-TrackNumber",
+			"-Year",
+			"-Duration",
+			"-SampleRate",
+			"-AudioSampleRate",
+			"-AudioBitrate",
+			"-AvgBitrate",
+			"-Channels",
+			"-AudioChannels",
+			tostring(self.file.url),
 		})
 		:stdout(Command.PIPED)
 		:stderr(Command.NULL)
-	:spawn()
+		:spawn()
 
 	local limit = self.area.h
 	local i, metadata = 0, {}
@@ -37,23 +58,23 @@ function M:peek()
 			local m_title, m_tag = prettify(next)
 			local ti = ui.Span(m_title):bold()
 			local ta = ui.Span(m_tag)
-			table.insert(metadata, ui.Line{ti, ta})
-			table.insert(metadata, ui.Line{})
+			table.insert(metadata, ui.Line({ ti, ta }))
+			table.insert(metadata, ui.Line({}))
 		end
 	until i >= self.skip + limit
-	
+
 	local p = ui.Paragraph(self.area, metadata):wrap(ui.Paragraph.WRAP)
 	ya.preview_widgets(self, { p })
 
 	local cover_width = self.area.w / 2 - 5
 	local cover_height = (self.area.h / 4) + 3
 
-	local bottom_right = ui.Rect {
+	local bottom_right = ui.Rect({
 		x = self.area.right - cover_width,
 		y = self.area.bottom - cover_height,
 		w = cover_width,
 		h = cover_height,
-	}
+	})
 
 	if self:preload() == 1 then
 		ya.image_show(cache, bottom_right)
@@ -89,22 +110,21 @@ function prettify(metadata)
 		AvgBitrate = "Average Bitrate:",
 		AudioSampleRate = "Sample Rate:",
 		SampleRate = "Sample Rate:",
-		AudioChannels = "Channels:"
+		AudioChannels = "Channels:",
 	}
 
 	for k, v in pairs(substitutions) do
-		metadata = metadata:gsub(tostring(k)..":", v, 1)
+		metadata = metadata:gsub(tostring(k) .. ":", v, 1)
 	end
 
 	-- Separate the tag title from the tag data
-	local t={}
-	for str in string.gmatch(metadata , "([^"..":".."]+)") do
-                table.insert(t, str)
+	local t = {}
+	for str in string.gmatch(metadata, "([^" .. ":" .. "]+)") do
+		table.insert(t, str)
 	end
 
 	-- Add back semicolon to title, rejoin tag data if it happened to contain a semicolon
-	return t[1]..":", table.concat(t, ":", 2)
-
+	return t[1] .. ":", table.concat(t, ":", 2)
 end
 
 function M:seek(units)
