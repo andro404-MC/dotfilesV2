@@ -9,7 +9,7 @@
 city_id=2553604
 
 # replace with yours
-api_key=a9ca7979afb39d9427a2feac237bdfa2
+api_key=$OPENWHEATHERMAPKEY
 
 # choose between metric for Celcius or imperial for fahrenheit
 unit=metric

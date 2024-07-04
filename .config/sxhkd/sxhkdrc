@@ -69,7 +69,7 @@ super + semicolon
 
 # Quick FPS boost #
 super + shift + equal
-  killall picom
+  killall picom picom-ani
 super + shift + minus
   picom --config ~/.config/picom/picom.conf 
 

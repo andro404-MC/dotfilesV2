@@ -10,6 +10,10 @@
 
 #sxhkd
 export $(envsubst < $HOME/.config/bspwm/env)
+
+# Secrets
+export $(envsubst < $HOME/.config/bspwm/secrets)
+
 setxkbmap -layout "gb" &&
 numlockx &
 pgrep -x sxhkd >/dev/null || sxhkd &
@@ -38,8 +42,7 @@ bspc desktop 一 -l next
 ##  floating rules   ##
 bspc rule -a file-roller state=floating
 bspc rule -a Lxappearance state=floating
-bspc rule -a Pavucontrol state=floating
-bspc rule -a Pcmanfm state=floating
+bspc rule -a pavucontrol state=floating
 # bspc rule -a Nemo state=floating
 bspc rule -a Audacious state=floating
 bspc rule -a qBittorrent state=floating
