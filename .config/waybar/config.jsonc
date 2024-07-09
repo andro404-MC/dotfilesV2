@@ -1,0 +1,147 @@
+// -*- mode: jsonc -*-
+{
+  "position": "top",
+  "height": 26,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/pingo", "clock", "tray"],
+  "modules-right": [
+    "gamemode",
+    "privacy",
+    "pulseaudio",
+    "backlight",
+    "memory",
+    "hyprland/language",
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "五",
+      "8": "七",
+      "9": "九",
+      "10": "十",
+    },
+  },
+
+  "hyprland/language": {
+    "format": "{1}",
+    "keyboard-name": "at-translated-set-2-keyboard",
+  },
+
+  "tray": {
+    "icon-size": 20.1,
+    "spacing": 5,
+  },
+
+  "clock": {
+    "format": "{:%a, %b %d - %I:%M %p}",
+    "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+
+  "memory": {
+    "format": "<span color='#7aa2f7'>{icon}</span>  {}%",
+    "format-icons": "󰍛",
+  },
+
+  "backlight": {
+    "scroll-step": 5,
+    "format": "<span color='#7aa2f7' size='10pt' rise='500'>{icon}</span>  {percent}%",
+    "tooltip-format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}",
+    "format-plugged": "  {capacity}",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "<span color='#7aa2f7'>{icon}</span>  {volume}%",
+    "format-muted": "󰝟  {volume}%",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+  },
+
+  "gamemode": {
+    "format": "{glyph} ",
+    "glyph": "",
+    "hide-not-running": true,
+    "use-icon": false,
+    "tooltip": true,
+  },
+
+  "privacy": {
+    "icon-spacing": 10,
+    "icon-size": 17,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 17,
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 17,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 17,
+      },
+    ],
+  },
+
+  "custom/pingo": {
+    "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " ",
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " ",
+    },
+    "repeat-icons": {
+      "on": " ",
+    },
+    "single-icons": {
+      "on": "1 ",
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": "",
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+  },
+}

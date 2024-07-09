@@ -11,7 +11,7 @@ show_symlink    = false
 max_width = 800
 max_height = 800
 image_filter = "triangle"
-# cache_dir = "~/.cache/yazi/"
+cache_dir = "~/.cache/yazi/"
 
 [plugin]
 previewers = [

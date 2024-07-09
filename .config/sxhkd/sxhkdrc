@@ -142,6 +142,8 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# thank god I am no longer using a fr keyboard
 #super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
 #	bspc desktop --focus ^{1-9,10}
 

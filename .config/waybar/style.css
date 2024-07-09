@@ -1,0 +1,78 @@
+* {
+  font-family:
+    scientifica,
+    FantasqueSansM Nerd Font,
+    Stick;
+  font-size: 15px;
+}
+
+#workspaces button label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 2;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  border-radius: 0px;
+  color: #c5c8c6;
+}
+
+#workspaces button.active {
+  color: #1a1b26;
+  background: #7aa2f7;
+}
+
+window#waybar {
+  background-color: #1a1b26;
+}
+
+#privacy,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#gamemode,
+#language,
+#custom-pingo,
+#mpd {
+  margin: 0 5px;
+  margin-bottom: 1;
+}
+
+#backlight tooltip {
+  background: #fff;
+}
+
+#tray {
+  margin-bottom: 0;
+}
+
+#language {
+  background: #2e3440;
+  padding: 0 6 0 8;
+  margin-left: 5;
+  margin-right: 0;
+}
+
+#custom-pingo {
+  margin-right: -10;
+}
+
+#clock,
+#privacy,
+#gamemode {
+  color: #7aa2f7;
+}
