@@ -8,8 +8,9 @@
   "modules-right": [
     "gamemode",
     "privacy",
-    "pulseaudio",
+    "disk",
     "backlight",
+    "pulseaudio",
     "memory",
     "hyprland/language",
   ],
@@ -39,8 +40,8 @@
   },
 
   "tray": {
-    "icon-size": 20.1,
-    "spacing": 5,
+    "icon-size": 17.1,
+    "spacing": 8,
   },
 
   "clock": {
@@ -58,6 +59,7 @@
     "format": "<span color='#7aa2f7' size='10pt' rise='500'>{icon}</span>  {percent}%",
     "tooltip-format": "{icon}  {percent}%",
     "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+    "on-click": "",
   },
 
   "battery": {
@@ -114,34 +116,13 @@
     ],
   },
 
-  "custom/pingo": {
-    "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
+  "disk": {
+    "interval": 30,
+    "format": "<span color='#7aa2f7'>󰋊</span>  {percentage_used}%",
+    "path": "/",
   },
 
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " ",
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " ",
-    },
-    "repeat-icons": {
-      "on": " ",
-    },
-    "single-icons": {
-      "on": "1 ",
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": "",
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)",
+  "custom/pingo": {
+    "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
   },
 }

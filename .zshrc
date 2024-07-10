@@ -51,6 +51,7 @@ alias apt-get="apt"
 alias lf="lfub"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
 alias neofetch="fastfetch -c neofetch.jsonc"
+alias seofetch="echo && neofetch --sixel Downloads/千本桜.jpg --logo-width 44"
 alias wsong="yt-dlp --audio-format mp3 -x"
 alias goclean="\rm /tmp/go-build* -r"
 
@@ -83,6 +84,18 @@ ya() {
 	fi
 	\rm -f -- "$tmp"
 }
+
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
 
 # Keybinds
 bindkey '^[[A' history-substring-search-up
