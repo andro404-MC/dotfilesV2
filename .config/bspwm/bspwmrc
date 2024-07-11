@@ -77,7 +77,7 @@ bspc rule -a thunderbird desktop='^10'
 /usr/bin/picom --config ~/.config/picom/picom.conf &
 /usr/bin/mpd --no-daemon &
 /usr/bin/otd-daemon &
-/usr/bin/lxpolkit &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/bin/nm-applet &
 /usr/bin/xfce4-power-manager &
 /usr/bin/parcellite &

@@ -2,10 +2,13 @@
 menu="mount\nunmount\npoweroff"
 notificationIco="$HOME/.local/share/icons/Papirus-Dark/16x16/panel/drive-removable-media-usb-panel.svg"
 
-selected=$(echo -e $menu | dmenu \
-  -p "Select Option" \
-  -h 26 -nb \#1a1b26 -nf \#C5C8C6 -sb \#7aa2f7 -sf \#1a1b26 \
-  -fn 'scientifica')
+selected=$(echo -e $menu | bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
+  -p "Select Option" --fn 'scientifica' \
+  --tb="#7aa2f7" --tf="#1a1b26" \
+  --fb="#1a1b26" \
+  --nb="#1a1b26" --nf="#C5C8C6" \
+  --ab="#1a1b26" --af="#C5C8C6" \
+  --hb="#7aa2f7" --hf="#1a1b26")
 
 mountfnc() {
   driveList=$(lsblk -rpo NAME,LABEL,MOUNTPOINT --noheadings \
@@ -18,9 +21,13 @@ mountfnc() {
     exit
   fi
 
-  selectedD=$(echo -e $driveList | dmenu \
-    -p "Select Drive" -h 26 -nb \#1a1b26 -nf \#C5C8C6 -sb \#7aa2f7 -sf \#1a1b26 \
-    -fn 'scientifica' \
+  selectedD=$(echo -e $driveList | bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
+    -p "Select Drive" --fn 'scientifica' \
+    --tb="#7aa2f7" --tf="#1a1b26" \
+    --fb="#1a1b26" \
+    --nb="#1a1b26" --nf="#C5C8C6" \
+    --ab="#1a1b26" --af="#C5C8C6" \
+    --hb="#7aa2f7" --hf="#1a1b26" \
     | awk '{print $1}' )
 
   if [[ $selectedD == "" ]]; then
@@ -42,9 +49,13 @@ unmountfnc() {
   fi
 
 
-  selectedD=$(echo $driveList | dmenu \
-    -p "Select Drive" -h 26 -nb \#1a1b26 -nf \#C5C8C6 -sb \#7aa2f7 -sf \#1a1b26 \
-    -fn 'scientifica' \
+  selectedD=$(echo $driveList | bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
+    -p "Select Drive" --fn 'scientifica' \
+    --tb="#7aa2f7" --tf="#1a1b26" \
+    --fb="#1a1b26" \
+    --nb="#1a1b26" --nf="#C5C8C6" \
+    --ab="#1a1b26" --af="#C5C8C6" \
+    --hb="#7aa2f7" --hf="#1a1b26" \
     | awk '{print $1}' )
 
   if [[ $selectedD == "" ]]; then
@@ -67,9 +78,13 @@ powerofffnc() {
   fi
 
 
-  selectedD=$(echo $driveList | dmenu \
-    -p "Select Drive" -h 26 -nb \#1a1b26 -nf \#C5C8C6 -sb \#7aa2f7 -sf \#1a1b26 \
-    -fn 'scientifica')
+  selectedD=$(echo $driveList | bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
+    -p "Select Drive" --fn 'scientifica' \
+    --tb="#7aa2f7" --tf="#1a1b26" \
+    --fb="#1a1b26" \
+    --nb="#1a1b26" --nf="#C5C8C6" \
+    --ab="#1a1b26" --af="#C5C8C6" \
+    --hb="#7aa2f7" --hf="#1a1b26")
   drivename=$(echo $selectedD | awk '{print $2}')
   drivePath=$(echo $selectedD | awk '{print $1}')
 

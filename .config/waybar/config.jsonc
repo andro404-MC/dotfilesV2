@@ -52,6 +52,7 @@
   "memory": {
     "format": "<span color='#7aa2f7'>{icon}</span>  {}%",
     "format-icons": "󰍛",
+    "interval": 4,
   },
 
   "backlight": {
@@ -124,5 +125,6 @@
 
   "custom/pingo": {
     "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
+    "tooltip": false,
   },
 }

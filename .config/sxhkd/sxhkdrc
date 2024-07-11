@@ -16,7 +16,7 @@ super + q
   $TERMINAL	
 #   Dmenu   #
 super + r
-	dmenu_path | dmenu_run -p "run" -h 26 -nb \#1a1b26 -nf \#C5C8C6 -sb \#7aa2f7 -sf \#1a1b26 -fn 'scientifica'
+	$HOME/Scripts/run.sh
 # Explorer  #
 super + shift + e
 	$EXPLORER
