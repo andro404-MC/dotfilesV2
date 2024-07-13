@@ -4,14 +4,14 @@
   "height": 26,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["custom/pingo", "clock", "tray"],
+  "modules-center": ["custom/pingo", "gamemode", "clock", "tray"],
   "modules-right": [
-    "gamemode",
     "privacy",
+    "battery",
     "disk",
+    "memory",
     "backlight",
     "pulseaudio",
-    "memory",
     "hyprland/language",
   ],
 
@@ -36,7 +36,6 @@
 
   "hyprland/language": {
     "format": "{1}",
-    "keyboard-name": "at-translated-set-2-keyboard",
   },
 
   "tray": {
@@ -69,11 +68,13 @@
       "critical": 15,
     },
 
-    "format": "{icon}  {capacity}%",
-    "format-charging": "  {capacity}",
-    "format-plugged": "  {capacity}",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", ""],
+    "interval": 4,
+    "format": "<span color='#7aa2f7' >{icon}</span> {capacity}%",
+    "format-charging": "<span color='#7aa2f7'>󱐋</span> {capacity}%",
+    "format-plugged": "<span color='#7aa2f7'></span> {capacity}%",
+    "format-full": "<span color='#7aa2f7'>{icon}</span> full",
+
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
 
   "pulseaudio": {
@@ -95,24 +96,24 @@
   },
 
   "privacy": {
-    "icon-spacing": 10,
-    "icon-size": 17,
+    "icon-spacing": 5,
+    "icon-size": 12,
     "transition-duration": 250,
     "modules": [
       {
         "type": "screenshare",
         "tooltip": true,
-        "tooltip-icon-size": 17,
+        "tooltip-icon-size": 15,
       },
       {
         "type": "audio-out",
         "tooltip": true,
-        "tooltip-icon-size": 17,
+        "tooltip-icon-size": 15,
       },
       {
         "type": "audio-in",
         "tooltip": true,
-        "tooltip-icon-size": 17,
+        "tooltip-icon-size": 15,
       },
     ],
   },

@@ -4,12 +4,24 @@
     FantasqueSansM Nerd Font,
     Stick;
   font-size: 15px;
+  transition-duration: 0s;
 }
 
-#workspaces button label {
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 2px;
+window#waybar {
+  background-color: #1a1b26;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.termite {
+  background-color: #3f3f3f;
+}
+
+window#waybar.chromium {
+  background-color: #000000;
+  border: none;
 }
 
 #workspaces button {
@@ -18,13 +30,20 @@
   color: #c5c8c6;
 }
 
+#workspaces button label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
 #workspaces button.active {
   color: #1a1b26;
   background: #7aa2f7;
 }
 
-window#waybar {
-  background-color: #1a1b26;
+#workspaces button.urgent {
+  color: #1a1b26;
+  background: #f7567e;
 }
 
 #privacy,
@@ -61,10 +80,19 @@ window#waybar {
 
 #custom-pingo {
   margin-right: -12px;
+  margin-left: -2px;
 }
 
 #clock,
 #privacy,
 #gamemode {
   color: #7aa2f7;
+}
+
+#privacy {
+  color: #1a1b26;
+  background-color: #7aa2f7;
+  border-radius: 10px;
+  padding: 3px 5px;
+  margin: 4px 5px;
 }
