@@ -24,6 +24,11 @@ window#waybar.chromium {
   border: none;
 }
 
+#workspaces button.active {
+  color: #1a1b26;
+  background: #7aa2f7;
+}
+
 #workspaces button {
   padding: 0px 6px;
   border-radius: 0px;
@@ -34,11 +39,6 @@ window#waybar.chromium {
   font-size: 13px;
   font-weight: bold;
   margin-bottom: 2px;
-}
-
-#workspaces button.active {
-  color: #1a1b26;
-  background: #7aa2f7;
 }
 
 #workspaces button.urgent {

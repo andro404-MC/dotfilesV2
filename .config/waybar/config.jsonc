@@ -4,9 +4,10 @@
   "height": 26,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["custom/pingo", "gamemode", "clock", "tray"],
+  "modules-center": ["custom/pingo", "clock", "tray"],
   "modules-right": [
     "privacy",
+    "gamemode",
     "battery",
     "disk",
     "memory",
@@ -17,8 +18,6 @@
 
   "hyprland/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
       "1": "一",
@@ -89,10 +88,14 @@
 
   "gamemode": {
     "format": "{glyph} ",
+    "format-alt": "{glyph} {count}",
     "glyph": "",
     "hide-not-running": true,
     "use-icon": false,
+    "icon-spacing": 0,
+    "icon-size": 0,
     "tooltip": true,
+    "tooltip-format": "Games running: {count}",
   },
 
   "privacy": {
