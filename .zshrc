@@ -35,7 +35,7 @@ SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Alias
-alias ls="lsd -A --group-directories-first"
+alias ls="exa --icons -A --group-directories-first"
 alias ll="eza -Al --color=always --group-directories-first"
 alias tree="eza --color=always --icons --tree"
 alias grep="rg"

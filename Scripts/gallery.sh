@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 folder=~/Pictures/$(ls ~/Pictures/ -1 \
-  | bemenu -B 0 -H 26 --cw 2 --ch 14 --hp 10 -i \
+  | bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
     -p "Select Option" --fn 'scientifica' \
     --tb="#7aa2f7" --tf="#1a1b26" \
     --fb="#1a1b26" \

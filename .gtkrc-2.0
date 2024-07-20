@@ -5,8 +5,8 @@ include "/home/untemi/.gtkrc-2.0.mine"
 gtk-theme-name="TokyoNight"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="Ubuntu 11"
-gtk-cursor-theme-name="Adwaita"
-gtk-cursor-theme-size=24
+gtk-cursor-theme-name="Bibata-Modern-Classic"
+gtk-cursor-theme-size=20
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
 gtk-button-images=0
