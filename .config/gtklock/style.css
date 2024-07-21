@@ -1,0 +1,36 @@
+window {
+  background-image: image(
+    url("/home/untemi/Pictures/Wallpapers/stargazing-res.png")
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#clock-label {
+  font-family: AlfaSlabOne;
+  font-size: 90px;
+}
+
+#input-label {
+  font-family: scientifica;
+  font-weight: bold;
+}
+
+#window-box {
+  background-color: rgba(26, 27, 38, 0.9);
+  padding: 50px;
+  border-radius: 30px;
+}
+
+#window-box button {
+  color: #1a1b26;
+  margin-top: 20px;
+}
+
+#runshell {
+  font-size: 20px;
+  font-family:
+    scientifica,
+    FantasqueSansM Nerd Font;
+}
