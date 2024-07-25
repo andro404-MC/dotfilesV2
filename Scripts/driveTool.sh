@@ -17,7 +17,7 @@ mountfnc() {
     | sed 's/,//g')
 
   if [[ $driveList == "" ]]; then
-    notify-send "no drive to mount" -i "$notificationIco"
+    notify-send "No drive to mount" -i "$notificationIco"
     exit
   fi
 
@@ -44,7 +44,7 @@ unmountfnc() {
     | sed 's/,//g' | awk '{print $1, $2}')
 
   if [[ $driveList == "" ]]; then
-    notify-send "no drive to umount" -i "$notificationIco"
+    notify-send "No drive to umount" -i "$notificationIco"
     exit
   fi
 
@@ -73,7 +73,7 @@ powerofffnc() {
     | sed 's/,//g' | awk '{print $1, $2}')
 
   if [[ $driveList == "" ]]; then
-    notify-send "no drive to poweroff" -i "$notificationIco"
+    notify-send "No drive to poweroff" -i "$notificationIco"
     exit
   fi
 

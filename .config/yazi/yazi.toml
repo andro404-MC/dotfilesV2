@@ -30,7 +30,6 @@ previewers = [
 	# Image
 	{ mime = "image/vnd.djvu", run = "noop" },
 	{ mime = "image/*",        run = "image" },
-	# { mime = "image/*",        run = "allmytoes" },
 
 	# Video
 	{ mime = "video/*", run = "video" },

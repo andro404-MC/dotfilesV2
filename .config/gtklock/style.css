@@ -1,6 +1,6 @@
 window {
   background-image: image(
-    url("/home/untemi/Pictures/Wallpapers/stargazing-res.png")
+    url("/home/untemi/Pictures/Wallpapers/stargazing-res.jpg")
   );
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@ window {
 
 #window-box {
   background-color: rgba(26, 27, 38, 0.9);
-  padding: 50px;
+  padding: 40px;
   border-radius: 30px;
 }
 

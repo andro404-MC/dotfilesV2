@@ -54,6 +54,10 @@ alias neofetch="fastfetch -c neofetch.jsonc"
 alias seofetch="echo && neofetch --sixel Downloads/千本桜.jpg --logo-width 44"
 alias wsong="yt-dlp --audio-format mp3 -x"
 alias goclean="\rm /tmp/go-build* -r"
+alias vpup="sudo wg-quick up UnArch"
+alias vpdown="sudo wg-quick down UnArch"
+alias vp1up="sudo wg-quick up UnArch1"
+alias vp1down="sudo wg-quick down UnArch1"
 
 # Functions
 keyb() {
