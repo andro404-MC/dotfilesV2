@@ -2,7 +2,7 @@
     monitor = 0
     follow = mouse
     width = 350
-    offset = 10x10
+    offset = 10x40
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -19,7 +19,7 @@
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    font = JetBrains Mono Nerd Font Medium 10
+    font = JetBrainsMono Nerd Font Medium 10
     line_height = 0
     markup = full
     format = "<span weight='bold'>%s</span>\n%b"

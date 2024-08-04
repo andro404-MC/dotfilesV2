@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 state=$(gamemoded -s | awk '{print $3}')
 if [[ $state == active  ]]; then
-  echo "  "
+  echo ""
 fi
 
 if [[ $state == inactive ]]; then

@@ -9,7 +9,7 @@ cfonts " untemi #!" -a left -f tiny -g "#f7768e","#7aa2f7" --transition-gradient
 
 autoload -Uz compinit
 autoload edit-command-line; zle -N edit-command-line
-fpath=($HOME/.local/share/zsh-plugins/zsh-completions/src/ $fpath)
+# fpath=($HOME/.local/share/zsh-plugins/zsh-completions/src/ $fpath)
 zstyle ":completion:*" menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 compinit
@@ -51,13 +51,15 @@ alias apt-get="apt"
 alias lf="lfub"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME'
 alias neofetch="fastfetch -c neofetch.jsonc"
-alias seofetch="echo && neofetch --sixel Downloads/千本桜.jpg --logo-width 44"
 alias wsong="yt-dlp --audio-format mp3 -x"
 alias goclean="\rm /tmp/go-build* -r"
 alias vpup="sudo wg-quick up UnArch"
 alias vpdown="sudo wg-quick down UnArch"
 alias vp1up="sudo wg-quick up UnArch1"
 alias vp1down="sudo wg-quick down UnArch1"
+alias svim="EDITOR=nvim sudo -e"
+alias pyenv="source ~/Development/Python/env/bin/activate"
+alias pyenvrun="~/Development/Python/env/bin/python"
 
 # Functions
 keyb() {

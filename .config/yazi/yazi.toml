@@ -15,29 +15,10 @@ image_filter = "triangle"
 cache_dir = "~/.cache/yazi/"
 
 [plugin]
-previewers = [
-	{ name = "*/", run = "folder", sync = true },
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+  { mime = "audio/*", run = "exifaudio" },
 
-	# Code
-	{ mime = "text/*",                 run = "code" },
-	{ mime = "*/xml",                  run = "code" },
-	{ mime = "*/javascript",           run = "code" },
-	{ mime = "*/x-wine-extension-ini", run = "code" },
-
-	# JSON
-	{ mime = "application/json", run = "json" },
-
-	# Image
-	{ mime = "image/vnd.djvu", run = "noop" },
-	{ mime = "image/*",        run = "image" },
-
-	# Video
-	{ mime = "video/*", run = "video" },
-
-	# PDF
-	{ mime = "application/pdf", run = "pdf" },
-
-	# Archive
 	{ mime = "application/zip",             run = "ouch" },
 	{ mime = "application/gzip",            run = "ouch" },
 	{ mime = "application/x-tar",           run = "ouch" },
@@ -46,12 +27,4 @@ previewers = [
 	{ mime = "application/x-7z-compressed", run = "ouch" },
 	{ mime = "application/x-rar",           run = "ouch" },
 	{ mime = "application/xz",              run = "ouch" },
-
-	# Fallback
-	{ name = "*", run = "file" },
-]
-
-prepend_previewers = [
-  { name = "*.md", run = "glow" },
-  { mime = "audio/*", run = "exifaudio" },
 ]

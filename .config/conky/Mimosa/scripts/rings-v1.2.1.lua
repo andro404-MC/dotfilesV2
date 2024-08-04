@@ -1,23 +1,4 @@
---[[
-Ring Meters by londonali1010 (2009)
-
-This script draws percentage meters as rings. It is fully customisable; all options are described in the script.
-
-IMPORTANT: if you are using the 'cpu' function, it will cause a segmentation fault if it tries to draw a ring straight away. The if statement near the end of the script uses a delay to make sure that this doesn't happen. It calculates the length of the delay by the number of updates since Conky started. Generally, a value of 5s is long enough, so if you update Conky every 1s, use update_num > 5 in that if statement (the default). If you only update Conky every 2s, you should change it to update_num > 3; conversely if you update Conky every 0.5s, you should use update_num > 10. ALSO, if you change your Conky, is it best to use "killall conky; conky" to update it, otherwise the update_num will not be reset and you will get an error.
-
-To call this script in Conky, use the following (assuming that you save this script to ~/scripts/rings.lua):
-	lua_load ~/scripts/rings-v1.2.1.lua
-	lua_draw_hook_pre ring_stats
-	
-Changelog:
-+ v1.2.1 -- Fixed minor bug that caused script to crash if conky_parse() returns a nil value (20.10.2009)
-+ v1.2 -- Added option for the ending angle of the rings (07.10.2009)
-+ v1.1 -- Added options for the starting angle of the rings, and added the "max" variable, to allow for variables that output a numerical value rather than a percentage (29.09.2009)
-+ v1.0 -- Original release (28.09.2009)
-]]
-
 require("cairo")
-require("cairo_xlib")
 
 settings_table = {
 
