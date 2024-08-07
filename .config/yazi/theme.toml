@@ -1,2 +1,11 @@
 [flavor]
 use = "tokyo-night"
+
+# [status]
+# separator_open  = ""
+# separator_close = ""
+#
+[icon]
+append_icon = [
+	{ name = "*/", text = "" },
+]

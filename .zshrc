@@ -82,14 +82,14 @@ apt(){
   exit
 }
 
-ya() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd "$cwd"
-	fi
-	\rm -f -- "$tmp"
-}
+# ya() {
+# 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+# 	yazi "$@" --cwd-file="$tmp"
+# 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+# 		cd "$cwd"
+# 	fi
+# 	\rm -f -- "$tmp"
+# }
 
 function osc7-pwd() {
     emulate -L zsh # also sets localoptions for us

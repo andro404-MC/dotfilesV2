@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "Sonico98/exifaudio", commit = "6205460" }, { use = "Reledia/glow", commit = "536185a" }, { use = "yazi-rs/plugins#full-border", commit = "ba2a7d7" }, { use = "yazi-rs/plugins#max-preview", commit = "ba2a7d7" } , { use = "imsi32/yatline", commit = "439b9d0" }]
+
+[flavor]
+deps = [{ use = "BennyOe/tokyo-night", commit = "024fb09" }]

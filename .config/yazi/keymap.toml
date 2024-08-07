@@ -1,10 +1,9 @@
 [manager]
 prepend_keymap = [
-  { on = [ "q" ],     run = "close",              desc = "Exit the process" },
-  { on = [ "Q" ],     run = "quit --no-cwd-file", desc = "Exit the process without writing cwd-file" },
-  { on = [ "<C-q>" ], run = "quit",               desc = "Exit the process without writing cwd-file" },
+  # { on = [ "q" ],     run = "close",              desc = "Exit the process" },
+  # { on = [ "Q" ],     run = "quit", desc = "Exit the process without writing cwd-file" },
 
   { on = [ "M" ],     run = "plugin --sync max-preview" },
   { on = [ "<C-n>" ], run = """shell 'dragon-drop -x -i -T "$@"' --confirm""" },
-  { on = [ "l" ],     run = "plugin --sync smart-enter",  desc = "Enter the child directory, or open the file"},
+  # { on = [ "l" ],     run = "plugin --sync smart-enter",  desc = "Enter the child directory, or open the file"},
 ]
