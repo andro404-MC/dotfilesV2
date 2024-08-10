@@ -60,6 +60,7 @@ alias vp1down="sudo wg-quick down UnArch1"
 alias svim="EDITOR=nvim sudo -e"
 alias pyenv="source ~/Development/Python/env/bin/activate"
 alias pyenvrun="~/Development/Python/env/bin/python"
+alias yapa="/usr/bin/ya"
 
 # Functions
 keyb() {
@@ -82,14 +83,14 @@ apt(){
   exit
 }
 
-# ya() {
-# 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-# 	yazi "$@" --cwd-file="$tmp"
-# 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-# 		cd "$cwd"
-# 	fi
-# 	\rm -f -- "$tmp"
-# }
+ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd "$cwd"
+	fi
+	\rm -f -- "$tmp"
+}
 
 function osc7-pwd() {
     emulate -L zsh # also sets localoptions for us

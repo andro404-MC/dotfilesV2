@@ -9,6 +9,7 @@
     "privacy",
     "gamemode",
     "battery",
+    "custom/genshinresin",
     "disk",
     "memory",
     "backlight",
@@ -129,6 +130,12 @@
 
   "custom/pingo": {
     "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
+    "tooltip": false,
+  },
+
+  "custom/genshinresin": {
+    "format": "<span color='#7aa2f7' rise='-500' font='10'>&#xf186;  </span>{}",
+    "exec": "~/Development/Python/env/bin/python Development/Python/genshinResin/main.py",
     "tooltip": false,
   },
 }

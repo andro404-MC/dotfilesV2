@@ -1,11 +1,14 @@
 [flavor]
 use = "tokyo-night"
 
-# [status]
-# separator_open  = ""
-# separator_close = ""
-#
+[status]
+separator_open  = ""
+separator_close = ""
+
+
 [icon]
-append_icon = [
-	{ name = "*/", text = "" },
+dirs = []
+
+prepend_conds = [
+	{ if = "dir", text = "" },
 ]
