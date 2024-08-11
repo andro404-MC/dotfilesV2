@@ -6,7 +6,7 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/pingo", "clock", "tray"],
   "modules-right": [
-    "privacy",
+    // "privacy",
     "gamemode",
     "battery",
     "custom/genshinresin",
@@ -136,6 +136,7 @@
   "custom/genshinresin": {
     "format": "<span color='#7aa2f7' rise='-500' font='10'>&#xf186;  </span>{}",
     "exec": "~/Development/Python/env/bin/python Development/Python/genshinResin/main.py",
+    "interval": 200,
     "tooltip": false,
   },
 }
