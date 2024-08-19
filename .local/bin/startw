@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+export XCURSOR_SIZE=20 
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_BACKEND="wayland,x11,*"
+export LIBVA_DRIVER_NAME=i965
+export MESA_LOADER_DRIVER_OVERRIDE=crocus
+
+export BAT_PAGER=
+
+export EDITOR=nvim
+export TERM=foot
+export TERMINAL=foot
+
+export PATH=$HOME/.local/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/.cargo/bin:$PATH
+export GOPATH=$HOME/.go
+export npm_config_prefix=$HOME/.local
+export WINEPREFIX=$HOME/Games/Wines/Staging
+
+sway

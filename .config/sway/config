@@ -1,0 +1,172 @@
+## Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $TERMINAL foot
+set $TERMEXPLORER yazi
+set $READER zathura
+set $EXPLORER nemo
+set $VIDEO mpv
+set $IMAGE imv
+set $BROWSER firefox
+set $MENU albert show
+
+## Config
+output * bg ~/Pictures/Wallpapers/zelda-res.png fill
+
+client.focused          #1a1b26 #7aa2f7 #1a1b26 #7aa2f7
+client.focused_inactive #1a1b26 #565f89 #C5C8C6 #565f89
+client.unfocused        #1a1b26 #565f89 #C5C8C6 #565f89
+client.urgent           #1a1b26 #f7567e #1a1b26 #f7567e
+client.placeholder      #C5C8C6 #1a1b26 #C5C8C6 #1a1b26
+
+client.background       #1a1b26
+
+default_border pixel 2
+gaps inner 4
+font scientifica 1
+seat seat0 xcursor_theme Bibata-Modern-Classic 20
+bindsym --border button1 nop
+bindsym --border button3 nop
+popup_during_fullscreen smart
+
+for_window [title="."] title_format " "
+for_window [app_id="firefox"] border none
+for_window [app_id="thunderbird"] border none
+for_window [app_id="albert"] move position 25ppt 18ppt
+
+workspace 1 gaps inner 0
+workspace 10 gaps inner 0
+workspace 1
+
+bar {
+  swaybar_command waybar
+}
+
+### Input configuration
+input type:keyboard {
+  xkb_layout gb
+}
+
+input 0:14373:USB_OPTICAL_MOUSE {
+  accel_profile "flat"
+  pointer_accel 0
+}
+
+input 2:8:AlpsPS/2_ALPS_GlidePoint {
+  tap enabled
+  natural_scroll enabled 
+  accel_profile "flat"
+  pointer_accel 0
+  dwt enabled
+  scroll_factor 0.2
+}
+
+##### Key bindings #####
+## Apps
+bindsym $mod+q exec $TERMINAL
+bindsym $mod+b exec $BROWSER
+bindsym $mod+space exec $MENU
+bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
+bindsym $mod+Shift+e exec $EXPLORER
+bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
+bindsym $mod+delete exec pidof wlogout || wlogout -b 5
+bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+g exec ~/Scripts/gallery.sh
+bindsym $mod+d exec ~/Scripts/driveTool.sh
+bindsym $mod+r exec ~/Scripts/run.sh
+
+### Actions
+# close
+bindsym $mod+c kill
+# Drag/Resize
+floating_modifier $mod normal
+# Reload
+bindsym $mod+Shift+r reload
+# Exit
+bindsym $mod+Shift+q exec swaymsg exit
+
+# Moving around:
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+w focus next sibling
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Layout stuff:
+bindsym $mod+i splith
+bindsym $mod+o splitv
+bindsym $mod+f fullscreen
+bindsym $mod+s floating toggle
+bindsym $mod+m layout toggle tabbed split
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Volume
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 10
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -10
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness +5
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
+
+
+### Autostart
+exec xrdb ~/.Xresources
+exec autotiling
+exec hypridle
+
+exec wl-paste --watch cliphist store
+exec wl-clip-persist
+exec dunst -conf ~/.config/dunst/dunstrc-hypr
+exec otd-daemon
+exec mpd --no-daemon
+exec swayosd-server
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec albert
+exec nm-applet
+exec udiskie
+exec sleep 4 && keepassxc
+
+include /etc/sway/config.d/*

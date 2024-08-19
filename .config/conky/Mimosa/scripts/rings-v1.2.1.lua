@@ -1,4 +1,5 @@
 require("cairo")
+require("cairo_xlib")
 
 settings_table = {
 

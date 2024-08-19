@@ -70,8 +70,8 @@ bspc rule -a thunderbird desktop='^10'
 ~/.fehbg &
 ~/.config/polybar/launch.sh &
 # enable after update 
-/usr/bin/cp ~/.config/conky/Mimosa/scripts/rings-v1.2.1.lua /tmp
-/usr/bin/conky -c ~/.config/conky/Mimosa/Mimosa.conf &
+# /usr/bin/cp ~/.config/conky/Mimosa/scripts/rings-v1.2.1.lua /tmp
+# /usr/bin/conky -c ~/.config/conky/Mimosa/Mimosa.conf &
 /usr/bin/xsetroot -cursor_name left_ptr &
 /usr/bin/picom --config ~/.config/picom/picom.conf &
 /usr/bin/mpd --no-daemon &

@@ -3,7 +3,7 @@
   "position": "top",
   "height": 26,
 
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["sway/workspaces"],
   "modules-center": ["custom/pingo", "clock", "tray"],
   "modules-right": [
     // "privacy",
@@ -14,10 +14,10 @@
     "memory",
     "backlight",
     "pulseaudio",
-    "hyprland/language",
+    "sway/language",
   ],
 
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "disable-scroll": true,
     "format": "{icon}",
     "format-icons": {
@@ -34,7 +34,7 @@
     },
   },
 
-  "hyprland/language": {
+  "sway/language": {
     "format": "{1}",
   },
 
