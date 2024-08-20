@@ -5,7 +5,7 @@ set $down j
 set $up k
 set $right l
 
-set $TERMINAL foot
+set $TERMINAL footclient
 set $TERMEXPLORER yazi
 set $READER zathura
 set $EXPLORER nemo
@@ -17,33 +17,20 @@ set $MENU albert show
 ## Config
 output * bg ~/Pictures/Wallpapers/zelda-res.png fill
 
-client.focused          #1a1b26 #7aa2f7 #1a1b26 #7aa2f7
-client.focused_inactive #1a1b26 #565f89 #C5C8C6 #565f89
-client.unfocused        #1a1b26 #565f89 #C5C8C6 #565f89
-client.urgent           #1a1b26 #f7567e #1a1b26 #f7567e
-client.placeholder      #C5C8C6 #1a1b26 #C5C8C6 #1a1b26
+client.focused          #1a1b26 #7aa2f7 #7aa2f7 #7aa2f7
+client.focused_inactive #1a1b26 #565f89 #565f89 #565f89
+client.unfocused        #1a1b26 #565f89 #565f89 #565f89
+client.urgent           #1a1b26 #f7567e #f7567e #f7567e
+client.placeholder      #C5C8C6 #1a1b26 #1a1b26 #1a1b26
 
 client.background       #1a1b26
 
 default_border pixel 2
+default_floating_border pixel 2
+titlebar_padding 2
 gaps inner 4
 font scientifica 1
 seat seat0 xcursor_theme Bibata-Modern-Classic 20
-bindsym --border button1 nop
-bindsym --border button3 nop
-popup_during_fullscreen smart
-
-for_window [title="."] title_format " "
-for_window [app_id="firefox"] border none
-for_window [app_id="thunderbird"] border none
-for_window [app_id="albert"] move position 25ppt 18ppt
-
-for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
-for_window [title="Unlock Database - KeePassXC"] floating enable
-
-workspace 1 gaps inner 0
-workspace 10 gaps inner 0
-workspace 1
 
 bar {
   swaybar_command waybar
@@ -100,7 +87,7 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-bindsym $mod+w focus next sibling
+bindsym $mod+w focus next
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
@@ -140,9 +127,9 @@ bindsym $mod+s floating toggle
 bindsym $mod+m layout toggle tabbed split
 
 # Move focus to the parent container
-bindsym $mod+a focus parent
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+# bindsym $mod+a focus parent
+# bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+minus scratchpad show
 
 # Volume
 bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 10
@@ -155,12 +142,15 @@ bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
 
 
 ### Autostart
-exec autotiling
-exec hypridle
-exec xrdb ~/.Xresources
-
 exec wl-paste --watch cliphist store
 exec wl-clip-persist --clipboard regular
+
+exec autotiling
+exec_always test -f ~/.Xresources && xrdb -merge ~/.Xresources
+exec swayidle lock "pidof gtklock || ~/Scripts/lock.sh" \
+              before-sleep "mpc -q pause & playerctl pause -a & loginctl lock-session"
+
+exec foot -s
 exec dunst -conf ~/.config/dunst/dunstrc-hypr
 exec otd-daemon
 exec mpd --no-daemon
@@ -171,5 +161,47 @@ exec albert
 exec nm-applet
 exec udiskie
 exec sleep 4 && keepassxc
+
+
+### Rules but not laws :(
+workspace 1 gaps inner 0
+workspace 10 gaps inner 0
+
+for_window [app_id="thunderbird"] border none
+for_window [app_id="albert"] move position 25ppt 18ppt
+
+for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
+for_window [title="Unlock Database - KeePassXC"] floating enable
+
+## Firefox
+for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, sticky enable
+for_window [app_id="firefox"] border none
+for_window [title = "About Mozilla Firefox"] floating enable
+for_window [window_role = "About"] floating enable
+
+## Steam
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+## Other floating
+for_window [window_role = "pop-up"] floating enable
+for_window [window_role = "bubble"] floating enable
+for_window [window_role = "dialog"] floating enable
+for_window [window_type = "dialog"] floating enable
+for_window [window_role = "task_dialog"] floating enable
+for_window [window_type = "menu"] floating enable
+for_window [app_id = "floating"] floating enable
+for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
+for_window [class = "(?i)pinentry"] floating enable
+for_window [title = "Administrator privileges required"] floating enable
+
 
 include /etc/sway/config.d/*
