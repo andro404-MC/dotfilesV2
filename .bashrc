@@ -16,8 +16,5 @@ export GOPATH=$HOME/.go
 export npm_config_prefix=$HOME/.local
 export WINEPREFIX=$HOME/Games/Wines/Staging
 
-export GTK_CSD=0
-export LD_PRELOAD=/usr/lib/libgtk3-nocsd.so.0
-
 export BAT_PAGER=
 export EDITOR=nvim

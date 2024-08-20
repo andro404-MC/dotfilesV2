@@ -160,7 +160,7 @@ exec hypridle
 exec xrdb ~/.Xresources
 
 exec wl-paste --watch cliphist store
-exec wl-clip-persist
+exec wl-clip-persist --clipboard regular
 exec dunst -conf ~/.config/dunst/dunstrc-hypr
 exec otd-daemon
 exec mpd --no-daemon
