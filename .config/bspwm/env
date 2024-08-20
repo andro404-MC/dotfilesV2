@@ -1,12 +1,5 @@
 QT_QPA_PLATFORMTHEME=qt5ct
-MESA_LOADER_DRIVER_OVERRIDE=crocus
 SXHKD_SHELL=sh
-GOPATH=$HOME/.go
-npm_config_prefix="$HOME/.local"
-GTK_THEME=TokyoNight
-BAT_PAGER=""
-LIBVA_DRIVER_NAME=i965
-WINEPREFIX=$HOME/Games/Wines/Staging
 
 BROWSER=firefox
 EDITOR=nvim
@@ -17,5 +10,3 @@ TERM=alacritty
 READER=zathura
 VIDEO=mpv
 IMAGE=nsxiv
-
-PATH="$HOME/.local/bin:$HOME/.local/bin:$HOME/.go/bin:$HOME/.cargo/bin:${PATH}:"

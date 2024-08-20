@@ -38,6 +38,9 @@ for_window [app_id="firefox"] border none
 for_window [app_id="thunderbird"] border none
 for_window [app_id="albert"] move position 25ppt 18ppt
 
+for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
+for_window [title="Unlock Database - KeePassXC"] floating enable
+
 workspace 1 gaps inner 0
 workspace 10 gaps inner 0
 workspace 1
@@ -152,9 +155,9 @@ bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
 
 
 ### Autostart
-exec xrdb ~/.Xresources
 exec autotiling
 exec hypridle
+exec xrdb ~/.Xresources
 
 exec wl-paste --watch cliphist store
 exec wl-clip-persist
