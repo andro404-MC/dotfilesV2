@@ -10,5 +10,5 @@ separator_close = ""
 dirs = []
 
 prepend_conds = [
-	{ if = "dir", text = "" },
+	{ if = "dir", text = "" },
 ]

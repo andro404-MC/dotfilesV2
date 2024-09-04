@@ -30,8 +30,8 @@ source "$HOME/.local/share/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.z
 source "$HOME/.local/share/zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Alias
@@ -53,10 +53,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$
 alias neofetch="fastfetch -c neofetch.jsonc"
 alias wsong="yt-dlp --audio-format mp3 -x"
 alias goclean="\rm /tmp/go-build* -r"
-alias vpup="sudo wg-quick up UnArch"
-alias vpdown="sudo wg-quick down UnArch"
-alias vp1up="sudo wg-quick up UnArch1"
-alias vp1down="sudo wg-quick down UnArch1"
 alias svim="EDITOR=nvim sudo -e"
 alias pyenv="source ~/Development/Python/env/bin/activate"
 alias pyenvrun="~/Development/Python/env/bin/python"
@@ -109,3 +105,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[s' sudo-command-line
 bindkey '^[e' edit-command-line 
+
+bindkey '^H' backward-kill-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word

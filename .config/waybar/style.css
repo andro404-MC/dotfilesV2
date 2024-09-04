@@ -70,12 +70,19 @@ window#waybar.chromium {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#gamemode,
 #language,
-#custom-pingo,
 #custom-genshinresin,
 #mpd {
   margin: 0px 6px;
+  margin-bottom: 1px;
+}
+
+#custom-pingo {
+  font-family: "Font Awesome 6 Free Solid";
+  margin-bottom: 1px;
+}
+
+#gamemode {
   margin-bottom: 1px;
 }
 
@@ -84,11 +91,6 @@ window#waybar.chromium {
   padding: 0px 6px 0px 8px;
   margin-left: 5px;
   margin-right: 0px;
-}
-
-#custom-pingo {
-  margin-right: -12px;
-  margin-left: -2px;
 }
 
 #clock,

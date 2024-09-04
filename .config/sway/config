@@ -25,6 +25,7 @@ client.placeholder      #C5C8C6 #1a1b26 #1a1b26 #1a1b26
 
 client.background       #1a1b26
 
+xwayland force
 default_border pixel 2
 default_floating_border pixel 2
 titlebar_padding 2
@@ -63,6 +64,8 @@ bindsym $mod+space exec $MENU
 bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
 bindsym $mod+Shift+e exec $EXPLORER
 bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
+bindsym print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
+
 bindsym $mod+delete exec pidof wlogout || wlogout -b 5
 bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
@@ -78,7 +81,7 @@ floating_modifier $mod normal
 # Reload
 bindsym $mod+Shift+r reload
 # Exit
-bindsym $mod+Shift+q exec swaymsg exit
+# bindsym $mod+Shift+q exec swaymsg exit
 
 # Moving around:
 # Move your focus around
@@ -88,6 +91,7 @@ bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
 bindsym $mod+w focus next
+bindsym $mod+Shift+w focus prev
 
 # Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
@@ -160,6 +164,8 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec albert
 exec nm-applet
 exec udiskie
+exec vesktop --start-minimized
+exec thunderbird
 exec sleep 4 && keepassxc
 
 
@@ -167,17 +173,23 @@ exec sleep 4 && keepassxc
 workspace 1 gaps inner 0
 workspace 10 gaps inner 0
 
+for_window [app_id="firefox"] move to workspace 1
+for_window [app_id="thunderbird"] move to workspace 10
+
 for_window [app_id="thunderbird"] border none
 for_window [app_id="albert"] move position 25ppt 18ppt
 
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
 for_window [title="Unlock Database - KeePassXC"] floating enable
 
 ## Firefox
-for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, sticky enable
 for_window [app_id="firefox"] border none
+for_window [app_id="firefox" title="Library"] floating enable
 for_window [title = "About Mozilla Firefox"] floating enable
 for_window [window_role = "About"] floating enable
+for_window [app_id="firefox" title="^Picture-in-Picture$"] \
+    floating enable, move position 740 390, sticky enable
 
 ## Steam
 for_window [class="^Steam$" title="^Friends$"] floating enable
