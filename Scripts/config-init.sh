@@ -37,6 +37,7 @@ sudo usermod -a -G video $USER
 mkdir .cache/zsh/
 touch .cache/zsh/history
 mkdir .local/share/mpd
+mkdir .local/share/mpd/playlists
 sudo rm /usr/bin/sh
 sudo ln /usr/bin/dash /usr/bin/sh
 
