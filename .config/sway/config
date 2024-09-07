@@ -61,6 +61,7 @@ input 2:8:AlpsPS/2_ALPS_GlidePoint {
 bindsym $mod+q exec $TERMINAL
 bindsym $mod+b exec $BROWSER
 bindsym $mod+space exec $MENU
+bindsym $mod+n exec $TERMINAL -e ncmpcpp
 bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
 bindsym $mod+Shift+e exec $EXPLORER
 bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
