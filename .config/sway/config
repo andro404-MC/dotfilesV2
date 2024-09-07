@@ -151,12 +151,12 @@ exec wl-clip-persist --clipboard regular
 
 exec autotiling
 exec_always test -f ~/.Xresources && xrdb -merge ~/.Xresources
-exec swayidle lock "pidof gtklock || ~/Scripts/lock.sh" \
+exec swayidle lock "pidof lock.sh || ~/Scripts/lock.sh" \
               before-sleep "mpc -q pause & playerctl pause -a & loginctl lock-session"
 
 exec foot -s
 exec dunst -conf ~/.config/dunst/dunstrc-hypr
-exec otd-daemon
+# exec otd-daemon
 exec mpd --no-daemon
 exec swayosd-server
 
@@ -164,7 +164,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec albert
 exec nm-applet
 exec udiskie
-exec vesktop --start-minimized
+# exec vesktop --start-minimized
 exec thunderbird
 exec sleep 4 && keepassxc
 
