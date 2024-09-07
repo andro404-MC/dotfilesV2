@@ -17,3 +17,4 @@ fi
 # checkout dotfiles from repo
 config checkout
 config config status.showUntrackedFiles no
+ya pack -i
