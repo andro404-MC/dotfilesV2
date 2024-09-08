@@ -183,6 +183,7 @@ for_window [app_id="albert"] move position 25ppt 18ppt
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
 for_window [app_id="nm-connection-editor"] floating enable
 for_window [title="Unlock Database - KeePassXC"] floating enable
+for_window [app_id="engrampa"] floating enable
 
 ## Firefox
 for_window [app_id="firefox"] border none

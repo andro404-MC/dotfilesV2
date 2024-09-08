@@ -6,7 +6,16 @@ telemetry=false
 enabled=true
 
 [calculator_qalculate]
+enabled=true
+
+[docs]
 enabled=false
+
+[pluginregistry]
+global_handler_enabled=false
+
+[triggers]
+global_handler_enabled=false
 
 [widgetsboxmodel]
 alwaysOnTop=true
