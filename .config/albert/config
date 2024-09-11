@@ -1,31 +1,77 @@
 [General]
+frontend=widgetsboxmodel
 showTray=false
 telemetry=false
 
+[albert]
+global_handler_enabled=false
+
 [applications]
 enabled=true
+use_exec=false
+use_generic_name=false
+use_keywords=true
+use_non_localized_name=false
 
 [calculator_qalculate]
-enabled=true
+angle_unit=2
+enabled=false
 
 [docs]
+enabled=false
+
+[fallback_order]
+1\extension=websearch
+1\fallback=47662842
+2\extension=websearch
+2\fallback=baefa5e2
+3\extension=websearch
+3\fallback=02160fc5
+size=3
+
+[files]
+enabled=false
+paths=@Invalid()
+
+[hash]
 enabled=false
 
 [pluginregistry]
 global_handler_enabled=false
 
+[python]
+enabled=false
+
+[python.emoji]
+enabled=false
+use_derived=false
+
+[python.pacman]
+enabled=false
+
+[system]
+enabled=false
+
+[timezones]
+enabled=false
+
 [triggers]
 global_handler_enabled=false
+
+[websearch]
+enabled=true
 
 [widgetsboxmodel]
 alwaysOnTop=true
 clearOnHide=true
 clientShadow=true
+darkTheme=Default System Palette
 displayScrollbar=false
 followCursor=true
 hideOnFocusLoss=true
 historySearch=true
-itemCount=5
+itemCount=6
+lightTheme=Default System Palette
 quitOnClose=false
 showCentered=true
-systemShadow=true
+systemShadow=false

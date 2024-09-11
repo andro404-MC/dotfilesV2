@@ -164,7 +164,7 @@ exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec albert
 exec nm-applet
-exec udiskie
+exec udiskie -t
 # exec vesktop --start-minimized
 exec thunderbird
 exec sleep 4 && keepassxc
