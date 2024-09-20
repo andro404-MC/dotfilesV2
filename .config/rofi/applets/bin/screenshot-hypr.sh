@@ -8,7 +8,6 @@
 # Import Current Theme
 source "$HOME"/.config/rofi/applets/shared/theme.bash
 theme="$type/$style"
-OUTPUT_NAME=eDP-1
 
 # Theme Elements
 prompt='Screenshot'
@@ -67,7 +66,7 @@ run_rofi() {
 
 # Screenshot
 time=`date +%Y-%m-%d-%H-%M-%S`
-dir="`xdg-user-dir PICTURES`/Screenshots"
+dir=`xdg-user-dir SCREENSHOTS`
 file="Screenshot_${time}.png"
 
 if [[ ! -d "$dir" ]]; then
@@ -84,26 +83,28 @@ countdown () {
 
 # take shots
 shotnow () {
-	sleep 0.3 && hyprshot -m output -m $OUTPUT_NAME -o $dir -f $file
+	grimshot savecopy screen $dir/$file
+  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of screen" "$file" | sh
+}
 
+shotwin () {
+	grimshot savecopy window $dir/$file
+  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of window" "$file" | sh
+}
+
+shotarea () {
+	grimshot savecopy area $dir/$file
+  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of area" "$file" | sh
 }
 
 shot5 () {
 	countdown '5'
-	sleep 1 && hyprshot -m output -m $OUTPUT_NAME -o $dir -f $file
+  shotnow
 }
 
 shot10 () {
 	countdown '10'
-	sleep 1 && hyprshot -m output -m $OUTPUT_NAME -o $dir -f $file
-}
-
-shotwin () {
-  hyprshot -m window -o $dir -f $file
-}
-
-shotarea () {
-  hyprshot -m region -o $dir -f $file
+  shotnow
 }
 
 # Execute Command

@@ -47,7 +47,9 @@ input 0:14373:USB_OPTICAL_MOUSE {
   pointer_accel 0
 }
 
+
 input 2:8:AlpsPS/2_ALPS_GlidePoint {
+  events disabled_on_external_mouse
   tap enabled
   natural_scroll enabled 
   accel_profile "flat"
@@ -66,6 +68,7 @@ bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
 bindsym $mod+Shift+e exec $EXPLORER
 bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
 bindsym print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
+bindsym Shift+print exec ./Scripts/shot.sh
 
 bindsym $mod+delete exec pidof wlogout || wlogout -b 5
 bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
@@ -145,6 +148,10 @@ bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness +5
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
 
+# lid
+bindswitch --reload --locked lid:on output * power off
+bindswitch --reload --locked lid:off output * power on
+
 
 ### Autostart
 exec wl-paste --watch cliphist store
@@ -153,7 +160,7 @@ exec wl-clip-persist --clipboard regular
 exec autotiling
 exec_always test -f ~/.Xresources && xrdb -merge ~/.Xresources
 exec swayidle lock "pidof lock.sh || ~/Scripts/lock.sh" \
-              before-sleep "mpc -q pause & playerctl pause -a & loginctl lock-session"
+              before-sleep "loginctl lock-session & playerctl pause -a & mpc -q pause"
 
 exec foot -s
 exec dunst -conf ~/.config/dunst/dunstrc-hypr
@@ -166,6 +173,7 @@ exec albert
 exec nm-applet
 exec udiskie -t
 # exec vesktop --start-minimized
+exec flatpak run com.discordapp.Discord --start-minimized
 exec thunderbird
 exec sleep 4 && keepassxc
 
@@ -216,6 +224,9 @@ for_window [app_id = "floating"] floating enable
 for_window [app_id = "floating_update"] floating enable, resize set width 1000px height 600px
 for_window [class = "(?i)pinentry"] floating enable
 for_window [title = "Administrator privileges required"] floating enable
+for_window [app_id="nemo" title = ".*Properties"] floating enable
 
+## HACK
+for_window [title=""] title_format "."
 
 include /etc/sway/config.d/*
