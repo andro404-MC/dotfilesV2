@@ -57,6 +57,7 @@ alias svim="EDITOR=nvim sudo -e"
 alias pyenv="source ~/Development/Python/env/bin/activate"
 alias pyenvrun="~/Development/Python/env/bin/python"
 alias yapa="/usr/bin/ya"
+alias imgup="~/.local/appimage/appimageupdatetool-x86_64.AppImage ~/.local/appimage/* -r"
 
 # Functions
 keyb() {

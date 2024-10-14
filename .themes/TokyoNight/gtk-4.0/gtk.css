@@ -5047,6 +5047,10 @@ separator.sidebar.selection-mode, .selection-mode separator.sidebar {
   margin: 3px 0;
 }
 
+.navigation-sidebar row.activatable label.dim-label {
+  color: rgba(233, 233, 237, 0.32);
+}
+
 .navigation-sidebar > row {
   min-height: 24px;
   padding: 0 6px 0 6px;
@@ -5128,6 +5132,10 @@ filechooserbutton > button > box {
 filechooserbutton:drop(active) {
   box-shadow: none;
   border-color: transparent;
+}
+
+filechooser child.activatable filelistcell.dim-label {
+  color: rgba(233, 233, 237, 0.7);
 }
 
 placessidebar {
@@ -5945,6 +5953,27 @@ popover.entry-completion > contents {
 #NautilusViewCell clamp box {
   margin: 0;
   border-spacing: 0;
+}
+
+/* Nautilus Progress Indicator */
+windowhandle box.vertical box.toolbar {
+  background-color: #1a1b26;
+  border: none;
+  outline: none;
+}
+
+windowhandle box.toolbar menubutton button.toggle {
+  background-color: #1a1b26;
+  border: none;
+  outline: none;
+}
+
+#NautilusProgressIndicator popover label {
+  color: rgba(233, 233, 237, 0.7);
+}
+
+#NautilusProgressIndicator popover image {
+  color: rgba(233, 233, 237, 0.7);
 }
 
 window.dialog > box > stack > box > box > notebook.frame {
@@ -7421,6 +7450,11 @@ window.dialog > .dialog-vbox > box > scrolledwindow > viewport > widget > list.b
 list.music-list {
   margin: -40px 0;
   background-color: transparent;
+}
+
+/* Nicotine+ */
+notebook scrolledwindow treeview.treeview-spacing {
+  background-color: #1a1b26;
 }
 
 avatar {
