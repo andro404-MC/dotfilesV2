@@ -14,6 +14,8 @@ Scroll_Lock
 # Terminal  #
 super + q
   $TERMINAL	
+super + n
+  $TERMINAL -e ncmpcpp
 #   Dmenu   #
 super + r
 	$HOME/Scripts/run.sh

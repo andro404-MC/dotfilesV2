@@ -10,8 +10,8 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun";
-    show-icons:                 true;
-    display-drun:               "";
+  show-icons:                 true;
+  display-drun:               "";
 	drun-display-format:        "{name}";
 }
 
@@ -70,6 +70,7 @@ prompt {
     enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
+    font: "Font Awesome 6 Free 12";
 }
 textbox-prompt-colon {
     enabled:                     true;

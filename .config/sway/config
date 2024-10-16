@@ -11,8 +11,8 @@ set $READER zathura
 set $EXPLORER nemo
 set $VIDEO mpv
 set $IMAGE imv
-set $BROWSER firefox
-set $MENU albert show
+set $BROWSER zen-browser
+set $MENU ~/.config/rofi/scripts/launcher_t2
 
 ## Config
 output * bg ~/Pictures/Wallpapers/zelda-res.png fill
@@ -183,8 +183,11 @@ workspace 1 gaps inner 0
 workspace 10 gaps inner 0
 
 for_window [app_id="firefox"] move to workspace 1
+for_window [app_id="zen-alpha"] move to workspace 1
 for_window [app_id="thunderbird"] move to workspace 10
 
+for_window [app_id="firefox"] border none
+for_window [app_id="zen-alpha"] border none
 for_window [app_id="thunderbird"] border none
 for_window [app_id="albert"] move position 25ppt 18ppt
 
@@ -194,14 +197,19 @@ for_window [title="Unlock Database - KeePassXC"] floating enable
 for_window [app_id="engrampa"] floating enable
 
 ## Firefox
-for_window [app_id="firefox"] border none
 for_window [app_id="firefox" title="Library"] floating enable
 for_window [title = "About Mozilla Firefox"] floating enable
-for_window [window_role = "About"] floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
     floating enable, move position 740 390, sticky enable
 
+## Zen
+for_window [app_id="zen-alpha" title="Library"] floating enable
+for_window [title = "About Zen Browser"] floating enable
+for_window [app_id="zen-alpha" title="^Picture-in-Picture$"] \
+    floating enable, move position 740 390, sticky enable
+
 ## Steam
+for_window [window_role = "About"] floating enable
 for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 for_window [class="^Steam$" title=".* - Chat"] floating enable
