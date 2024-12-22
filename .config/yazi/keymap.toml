@@ -1,5 +1,5 @@
 [manager]
 prepend_keymap = [
-  { on = [ "M" ],     run = "plugin --sync max-preview" },
-  { on = [ "<C-n>" ], run = """shell 'dragon-drop -x -i -T "$@"' --confirm""" },
+  { on = [ "M" ],     run = "plugin max-preview" },
+  { on = [ "<C-n>" ], run = """shell 'dragon-drop -x -i -T "$@"'""" },
 ]

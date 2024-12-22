@@ -58,6 +58,7 @@ alias pyenv="source ~/Development/Python/env/bin/activate"
 alias pyenvrun="~/Development/Python/env/bin/python"
 alias yapa="/usr/bin/ya"
 alias imgup="~/.local/appimage/appimageupdatetool-x86_64.AppImage ~/.local/appimage/* -r"
+alias x="chmod +x"
 
 # Functions
 keyb() {
@@ -68,7 +69,22 @@ godoc() {
   curl curl -s cht.sh/go/{$1}
 }
 
-apt(){
+upall() {
+  echo "\033[38;5;10m--- PacMan ---\033[0m"
+  yay --noconfirm
+  echo "\n\033[38;5;10m--- PacMan CleanUp ---\033[0m"
+  yay -Sc --noconfirm
+  echo "\n\033[38;5;10m--- Flatpak Update ---\033[0m"
+  flatpak update --noninteractive
+  echo "\n\033[38;5;10m--- Flatpak CleanUp ---\033[0m"
+  flatpak uninstall --unused --delete-data --noninteractive
+  echo "\n\033[38;5;10m--- AppImage Update ---\033[0m"
+  imgup
+  echo "\n\033[38;5;10m--- Yazi plugins Update ---\033[0m"
+  yapa pack -u
+}
+
+apt() {
   echo "Bro we are not on Debian or Ubuntu or a shitty distro"
   sleep 3
   echo "Wait are you fucking DUMB ???"

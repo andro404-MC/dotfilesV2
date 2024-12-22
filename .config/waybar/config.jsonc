@@ -45,11 +45,12 @@
 
   "clock": {
     "format": "{:%a, %b %d - %I:%M %p}",
-    "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<big>{:%A %d %B %Y\n%H:%M}</big>",
   },
 
   "memory": {
     "format": "<span color='#7aa2f7'>󰍛</span>  {}%",
+    "interval": 4,
   },
 
   "backlight": {
@@ -128,7 +129,7 @@
 
   "custom/pingo": {
     "format": "<span font='6'>{}</span>",
-    "exec": "~/.go/bin/pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
+    "exec": "PINGOIP=1.1.1.1 pingo --no-trail -n -w -m ico --timeout 600 --retry-delay 2 --recheck-delay 4",
     "tooltip": false,
   },
 

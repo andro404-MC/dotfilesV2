@@ -83,18 +83,15 @@ countdown () {
 
 # take shots
 shotnow () {
-	grimshot savecopy screen $dir/$file
-  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of screen" "$file" | sh
+	/usr/share/sway-contrib/grimshot savecopy screen $dir/$file
 }
 
 shotwin () {
-	grimshot savecopy window $dir/$file
-  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of window" "$file" | sh
+	/usr/share/sway-contrib/grimshot savecopy window $dir/$file
 }
 
 shotarea () {
-	grimshot savecopy area $dir/$file
-  notify-send -A "xdg-open $dir/$file=a" -t 3000 -i "$dir/$file" "Screenshot of area" "$file" | sh
+	/usr/share/sway-contrib/grimshot savecopy area $dir/$file
 }
 
 shot5 () {

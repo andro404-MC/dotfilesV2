@@ -1,5 +1,5 @@
 [flavor]
-use = "tokyo-night"
+dark = "mocha"
 
 [status]
 separator_open  = ""

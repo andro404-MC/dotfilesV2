@@ -7,6 +7,7 @@ export SDL_VIDEODRIVER=wayland
 export CLUTTER_BACKEND=wayland
 export GDK_BACKEND="wayland,x11,*"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_CSD=0
 
 export TERM=foot
 export TERMINAL=foot

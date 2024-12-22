@@ -15,18 +15,18 @@ use_non_localized_name=false
 
 [calculator_qalculate]
 angle_unit=2
-enabled=false
+enabled=true
 
 [docs]
 enabled=false
 
 [fallback_order]
 1\extension=websearch
-1\fallback=47662842
+1\fallback=0729958e
 2\extension=websearch
-2\fallback=baefa5e2
+2\fallback=3f1d9f93
 3\extension=websearch
-3\fallback=02160fc5
+3\fallback=ec482db0
 size=3
 
 [files]
@@ -34,23 +34,57 @@ enabled=false
 paths=@Invalid()
 
 [hash]
+enabled=true
+
+[path]
 enabled=false
 
 [pluginregistry]
 global_handler_enabled=false
 
 [python]
+enabled=true
+
+[python.arch_wiki]
+enabled=true
+
+[python.dice_roll]
 enabled=false
 
 [python.emoji]
-enabled=false
+enabled=true
+fuzzy=false
+global_handler_enabled=false
 use_derived=false
+
+[python.kill]
+enabled=true
+
+[python.locate]
+enabled=false
 
 [python.pacman]
 enabled=false
 
+[python.python_eval]
+enabled=false
+
+[python.unit_converter]
+enabled=true
+global_handler_enabled=false
+trigger="con "
+
+[snippets]
+enabled=false
+
+[ssh]
+enabled=false
+
 [system]
 enabled=false
+
+[timer]
+enabled=true
 
 [timezones]
 enabled=false
@@ -60,6 +94,7 @@ global_handler_enabled=false
 
 [websearch]
 enabled=true
+global_handler_enabled=true
 
 [widgetsboxmodel]
 alwaysOnTop=true

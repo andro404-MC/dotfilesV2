@@ -1,3 +1,4 @@
+[general]
 import = ["~/.config/alacritty/theme.toml"]
 
 [colors]
@@ -35,8 +36,8 @@ mods = "Control|Shift"
 history = 1000
 multiplier = 3
 
-[shell]
-program = "/usr/bin/zsh"
+[terminal]
+shell = "/usr/bin/zsh"
 
 [window]
 opacity = 0.90

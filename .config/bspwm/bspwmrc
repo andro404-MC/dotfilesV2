@@ -74,14 +74,14 @@ bspc rule -a thunderbird desktop='^10'
 /usr/bin/xsetroot -cursor_name left_ptr &
 /usr/bin/picom --config ~/.config/picom/picom.conf &
 /usr/bin/mpd --no-daemon &
-/usr/bin/otd-daemon &
+# /usr/bin/otd-daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/bin/nm-applet &
-/usr/bin/udiskie &
+/usr/bin/udiskie -t &
 /usr/bin/xfce4-power-manager &
 # /usr/bin/parcellite &
 /usr/bin/keepassxc &
 /usr/bin/thunderbird &
-flatpak run com.discordapp.Discord --start-minimized &
+flatpak run dev.vencord.Vesktop --start-minimized &
 xinput set-prop "10" "libinput Accel Profile Enabled" 0 1 0 &
 /usr/bin/xss-lock -- betterlockscreen -l dimblur --quiet --off 5
