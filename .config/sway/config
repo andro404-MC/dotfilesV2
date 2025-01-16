@@ -6,6 +6,7 @@ set $up k
 set $right l
 
 set $TERMINAL footclient
+set $ALTTERMINAL alacritty
 set $TERMEXPLORER yazi
 set $READER zathura
 set $EXPLORER nemo
@@ -68,21 +69,23 @@ input 2:8:AlpsPS/2_ALPS_GlidePoint {
 ##### Key bindings #####
 ## Apps
 bindsym $mod+q exec $TERMINAL
+bindsym $mod+SHIFT+q exec $ALTTERMINAL
 bindsym $mod+b exec $BROWSER
-bindsym $mod+space exec $MENU
 bindsym $mod+n exec $TERMINAL -e ncmpcpp
 bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
 bindsym $mod+Shift+e exec $EXPLORER
 bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
-bindsym print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
-bindsym Shift+print exec ./Scripts/shot.sh
+bindsym Ctrl+Shift+Escape exec $TERMINAL -e btop
 
+bindsym $mod+space exec $MENU
 bindsym $mod+delete exec pidof wlogout || wlogout -b 5
-bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
-bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+r exec ~/Scripts/run.sh
 bindsym $mod+g exec ~/Scripts/gallery.sh
 bindsym $mod+d exec ~/Scripts/driveTool.sh
-bindsym $mod+r exec ~/Scripts/run.sh
+bindsym print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
+bindsym Shift+print exec ./Scripts/shot.sh
+bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
 ### Actions
 # close

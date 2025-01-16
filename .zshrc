@@ -77,7 +77,8 @@ upall() {
   echo "\n\033[38;5;10m--- Flatpak Update ---\033[0m"
   flatpak update --noninteractive
   echo "\n\033[38;5;10m--- Flatpak CleanUp ---\033[0m"
-  flatpak uninstall --unused --delete-data --noninteractive
+  flatpak uninstall --unused --noninteractive
+  flatpak uninstall --delete-data --noninteractive
   echo "\n\033[38;5;10m--- AppImage Update ---\033[0m"
   imgup
   echo "\n\033[38;5;10m--- Yazi plugins Update ---\033[0m"
