@@ -23,6 +23,8 @@ return {
         "go",
         "templ",
         "svelte",
+        "markdown",
+        "markdown_inline",
       },
     },
   },
