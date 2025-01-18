@@ -82,7 +82,13 @@ upall() {
   echo "\n\033[38;5;10m--- AppImage Update ---\033[0m"
   imgup
   echo "\n\033[38;5;10m--- Yazi plugins Update ---\033[0m"
-  yapa pack -u
+  echo "..."
+  yapa pack -u >> /dev/null
+  echo "done"
+  echo "\n\033[38;5;10m--- Nvchad Update ---\033[0m"
+  echo "..."
+  nvim --headless "+Lazy! sync" +qa >> /dev/null
+  echo "done"
 }
 
 apt() {

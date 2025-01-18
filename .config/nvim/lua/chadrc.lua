@@ -16,7 +16,7 @@ local options = {
 
     statusline = {
       enabled = true,
-      theme = "default",
+      theme = "vscode_colored",
       separator_style = "block",
     },
 
