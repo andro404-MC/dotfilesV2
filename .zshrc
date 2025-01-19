@@ -83,11 +83,11 @@ upall() {
   imgup
   echo "\n\033[38;5;10m--- Yazi plugins Update ---\033[0m"
   echo "..."
-  yapa pack -u >> /dev/null
+  yapa pack -u >/dev/null 2>&1
   echo "done"
   echo "\n\033[38;5;10m--- Nvchad Update ---\033[0m"
   echo "..."
-  nvim --headless "+Lazy! sync" +qa >> /dev/null
+  nvim --headless "+Lazy! sync" +qa >/dev/null 2>&1
   echo "done"
 }
 
