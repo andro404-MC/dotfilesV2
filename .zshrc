@@ -36,7 +36,7 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
 # Alias
 alias ls="exa --icons -A --group-directories-first"
-alias ll="eza -Al --color=always --group-directories-first"
+alias ll="eza -Al --color=always --group-directories-first --git -h"
 alias tree="eza --color=always --icons --tree"
 alias grep="rg"
 alias gtop="sudo intel_gpu_top"
@@ -112,6 +112,7 @@ ya() {
 	\rm -f -- "$tmp"
 }
 
+# Chinese spyware
 function osc7-pwd() {
     emulate -L zsh # also sets localoptions for us
     setopt extendedglob

@@ -25,6 +25,8 @@ return {
         "svelte",
         "markdown",
         "markdown_inline",
+        "sql",
+        "gomod",
       },
     },
   },

@@ -20,9 +20,6 @@ return {
       view = {
         width = 23,
       },
-      filters = {
-        dotfiles = false,
-      },
     },
   },
 }

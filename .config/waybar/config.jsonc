@@ -6,7 +6,7 @@
   "modules-left": ["sway/workspaces"],
   "modules-center": ["custom/pingo", "clock", "tray"],
   "modules-right": [
-    // "privacy",
+     //"privacy",
     "gamemode",
     "custom/genshinresin",
     "battery",

@@ -82,8 +82,8 @@ bindsym $mod+delete exec pidof wlogout || wlogout -b 5
 bindsym $mod+r exec ~/Scripts/run.sh
 bindsym $mod+g exec ~/Scripts/gallery.sh
 bindsym $mod+d exec ~/Scripts/driveTool.sh
-bindsym print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
-bindsym Shift+print exec ./Scripts/shot.sh
+bindsym print exec ./Scripts/shot.sh
+bindsym Shift+print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
 bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 

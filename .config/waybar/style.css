@@ -55,7 +55,6 @@ window#waybar.chromium {
 
 #privacy,
 #clock,
-#battery,
 #cpu,
 #memory,
 #disk,
@@ -72,6 +71,7 @@ window#waybar.chromium {
 #power-profiles-daemon,
 #language,
 #custom-genshinresin,
+#battery,
 #mpd {
   margin: 0px 6px;
   margin-bottom: 1px;
