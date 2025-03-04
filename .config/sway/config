@@ -29,13 +29,14 @@ client.placeholder      #C5C8C6 #1a1b26 #1a1b26 #1a1b26
 
 client.background       #1a1b26
 
+primary_selection disabled
 xwayland force
 default_border pixel 2
 default_floating_border pixel 2
 titlebar_padding 2
 gaps inner 4
 font scientifica 1
-seat seat0 xcursor_theme Bibata-Modern-Classic 20
+seat * xcursor_theme Bibata-Modern-Classic 20
 
 bar {
   swaybar_command waybar
@@ -48,7 +49,7 @@ input type:keyboard {
 
 input 0:14373:USB_OPTICAL_MOUSE {
   accel_profile "flat"
-  pointer_accel 0
+  pointer_accel -0.3
 }
 
 input 6392:3993:USB_OPTICAL_MOUSE {
@@ -82,7 +83,7 @@ bindsym $mod+delete exec pidof wlogout || wlogout -b 5
 bindsym $mod+r exec ~/Scripts/run.sh
 bindsym $mod+g exec ~/Scripts/gallery.sh
 bindsym $mod+d exec ~/Scripts/driveTool.sh
-bindsym print exec ./Scripts/shot.sh
+bindsym print exec ~/Scripts/shot.sh
 bindsym Shift+print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
 bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
 bindsym $mod+v exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
@@ -185,7 +186,7 @@ exec albert
 exec nm-applet
 exec udiskie -t
 # exec vesktop --start-minimized
-exec flatpak run dev.vencord.Vesktop --start-minimized
+# exec flatpak run dev.vencord.Vesktop --start-minimized
 exec thunderbird
 exec sleep 4 && keepassxc
 

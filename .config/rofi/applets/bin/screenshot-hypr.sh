@@ -83,15 +83,15 @@ countdown () {
 
 # take shots
 shotnow () {
-	/usr/share/sway-contrib/grimshot savecopy screen $dir/$file
+	/usr/share/sway-contrib/grimshot savecopy screen --notify $dir/$file
 }
 
 shotwin () {
-	/usr/share/sway-contrib/grimshot savecopy window $dir/$file
+	/usr/share/sway-contrib/grimshot savecopy window --notify $dir/$file
 }
 
 shotarea () {
-	/usr/share/sway-contrib/grimshot savecopy area $dir/$file
+	/usr/share/sway-contrib/grimshot savecopy area --notify $dir/$file
 }
 
 shot5 () {

@@ -5,6 +5,10 @@ local options = {
     html = { "prettier", "rustywind" },
     go = { "gofumpt", "goimports-reviser", "golines" },
     templ = { "templ", "rustywind" },
+    toml = { "taplo" },
+    yaml = { "yamlfmt" },
+    sql = { "sqruff" },
+    python = { "ruff" },
   },
 
   format_on_save = {

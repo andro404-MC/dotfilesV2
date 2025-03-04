@@ -2,13 +2,11 @@
 dark = "tokyo-night"
 
 [status]
-separator_open  = ""
-separator_close = ""
+sep_left = { open = "▐", close = "▌" }
+sep_right = { open = "▐", close = "▌" }
 
 
 [icon]
 dirs = []
 
-prepend_conds = [
-	{ if = "dir", text = "" },
-]
+prepend_conds = [{ if = "dir", text = "" }]

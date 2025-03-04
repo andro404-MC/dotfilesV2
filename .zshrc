@@ -1,4 +1,3 @@
-
 # Init
 echo ""
 echo ""
@@ -59,6 +58,8 @@ alias pyenvrun="~/Development/Python/env/bin/python"
 alias yapa="/usr/bin/ya"
 alias imgup="~/.local/appimage/appimageupdatetool-x86_64.AppImage ~/.local/appimage/* -r"
 alias x="chmod +x"
+alias py="python"
+alias pyenv="source .venv/bin/activate"
 
 # Functions
 keyb() {
@@ -103,16 +104,15 @@ apt() {
   exit
 }
 
-ya() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+function ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd "$cwd"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
 	fi
 	\rm -f -- "$tmp"
 }
 
-# Chinese spyware
 function osc7-pwd() {
     emulate -L zsh # also sets localoptions for us
     setopt extendedglob

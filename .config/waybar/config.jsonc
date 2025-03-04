@@ -4,7 +4,8 @@
   "height": 26,
 
   "modules-left": ["sway/workspaces"],
-  "modules-center": ["custom/pingo", "clock", "tray"],
+  "modules-center": ["clock", "tray"],
+  //"modules-center": ["custom/pingo", "clock", "tray"],
   "modules-right": [
      //"privacy",
     "gamemode",

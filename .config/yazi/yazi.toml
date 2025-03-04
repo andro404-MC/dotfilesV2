@@ -1,11 +1,11 @@
 [manager]
-ratio           = [ 2, 3, 6 ]
-sort_by         = "natural"
-sort_sensitive  = false
-sort_reverse    = false
-sort_dir_first  = true
-linemode        = "size"
-show_symlink    = false
+ratio = [2, 3, 6]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "size"
+show_symlink = false
 
 [preview]
 max_width = 800
@@ -17,5 +17,8 @@ cache_dir = "~/.cache/yazi/"
 [plugin]
 prepend_previewers = [
   { name = "*.md", run = "glow" },
-  { mime = "audio/*",   run = "exifaudio"},
+  { mime = "audio/*", run = "exifaudio" },
+]
+prepend_fetchers = [
+  { id = "mime", name = "*", run = "mime-ext", prio = "high" },
 ]
