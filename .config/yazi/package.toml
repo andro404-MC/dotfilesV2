@@ -1,21 +1,21 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "38efe09"
+rev = "4c63ed3"
 hash = "7b625412411be411153886894d9acaf"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "38efe09"
-hash = "2678c84a0b3a0b22504e918ccaf99011"
+rev = "4c63ed3"
+hash = "b33b8b5e45cb10ffd31d3cccb93c6fd7"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "a6d30a1"
-hash = "f3970de915c038d09fecf8d93d156fba"
+rev = "e079a00"
+hash = "8dd8bc3484547390ba50dfa58d7436b0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "38efe09"
+rev = "4c63ed3"
 hash = "88e56a64b7ce7c4314427452343fef17"
 
 [[flavor.deps]]

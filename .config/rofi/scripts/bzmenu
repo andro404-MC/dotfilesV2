@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+bzmenu -l custom --launcher-command "rofi -dmenu -p ' ' -theme ~/.config/rofi/themes/unified.rasi"

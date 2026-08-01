@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-folder=~/Pictures/$(ls ~/Pictures/ -1 |
+folder=$(ls ~/Pictures/ -1 |
   bemenu -H 26 --cw 2 --ch 14 --hp 10 -i \
     -p "Select Option" --fn 'scientifica' \
     --tb="#7aa2f7" --tf="#1a1b26" \
@@ -7,4 +7,6 @@ folder=~/Pictures/$(ls ~/Pictures/ -1 |
     --nb="#1a1b26" --nf="#C5C8C6" \
     --ab="#1a1b26" --af="#C5C8C6" \
     --hb="#7aa2f7" --hf="#1a1b26")
-nsxiv -b -f -t $folder
+
+[[ -z "$folder" ]] && exit 0
+nsxiv -b -f -t ~/Pictures/"$folder"

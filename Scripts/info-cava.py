@@ -14,8 +14,10 @@ if len(sys.argv) > 1 and sys.argv[1] == "--subproc":
         if color
     )
     while True:
-        cava_input = input().strip().split()
-        cava_input = [int(i) for i in cava_input]
+        line = sys.stdin.readline()
+        if not line:
+            sys.exit(0)
+        cava_input = [int(i) for i in line.strip().split()]
         output = ""
         for bar in cava_input:
             if bar < len(ramp_list):
@@ -76,13 +78,22 @@ self_proc = subprocess.Popen(
 
 
 def cleanup(sig, frame):
-    os.remove(cava_conf)
+    try:
+        os.remove(cava_conf)
+    except OSError:
+        pass
     cava_proc.kill()
     self_proc.kill()
-    sys.exit(0)
+    os._exit(0)
 
 
 signal.signal(signal.SIGTERM, cleanup)
 signal.signal(signal.SIGINT, cleanup)
 
 self_proc.wait()
+
+try:
+    os.remove(cava_conf)
+except OSError:
+    pass
+cava_proc.kill()

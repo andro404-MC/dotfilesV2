@@ -8,8 +8,8 @@ linemode = "size"
 show_symlink = false
 
 [preview]
-max_width = 800
-max_height = 800
+max_width = 1000
+max_height = 1000
 sixel_fraction = 14
 image_delay = 0
 image_filter = "Catmull-Rom"

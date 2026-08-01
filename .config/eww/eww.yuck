@@ -1,0 +1,116 @@
+(deflisten workspaces :initial "[]"
+  `/home/untemi/.config/eww/scripts/workspaces-watcher.sh`)
+
+(defpoll clock :interval "1s" :initial ""
+  `date '+%a, %b %d - %I:%M %p'`)
+
+(defpoll updates :interval "3600s" :initial ""
+  `/home/untemi/.config/eww/scripts/updates.sh`)
+
+(defpoll battery :interval "5s" :initial ""
+  `/home/untemi/.config/eww/scripts/battery.sh`)
+
+(defpoll disk :interval "30s" :initial ""
+  `/home/untemi/.config/eww/scripts/disk.sh`)
+
+(defpoll memory :interval "4s" :initial ""
+  `/home/untemi/.config/eww/scripts/memory.sh`)
+
+(deflisten backlight :initial ""
+  `/home/untemi/.config/eww/scripts/backlight-watcher.sh`)
+
+(deflisten audio :initial ""
+  `/home/untemi/.config/eww/scripts/audio-watcher.sh`)
+
+(deflisten language :initial ""
+  `/home/untemi/.config/eww/scripts/language-watcher.sh`)
+
+(defpoll gamemode :interval "5s" :initial ""
+  `/home/untemi/Scripts/gamemode.sh`)
+
+(defpoll hsrpower :interval "200s" :initial ""
+  `/home/untemi/Scripts/hsr.sh power | jq -r '.text // empty'`)
+
+(defpoll genshin :interval "200s" :initial ""
+  `/home/untemi/Scripts/genshin.sh resin | jq -r '.text // empty'`)
+
+(defwidget workspaces-widget []
+  (box :class "workspaces" :orientation "h" :space-evenly false
+    (for ws in workspaces
+      (button :class { ws.urgent ? "ws-urgent" : (ws.focused ? "ws-active" : "ws-inactive") }
+              :onclick "swaymsg workspace ${ws.num > 0 ? ws.num : ws.name}"
+        (label :text {ws.display})))))
+
+(defwidget clock-widget []
+  (label :class "clock" :text clock :unindent false))
+
+(defwidget updates-widget []
+  (label :class "updates" :markup updates))
+
+(defwidget tray-widget []
+  (systray :class "tray" :spacing 3 :icon-size 17))
+
+(defwidget gamemode-widget []
+  (label :class "gamemode" :text gamemode))
+
+(defwidget hsrpower-widget []
+  (label :class "hsrpower"
+    :markup "<span color='#7aa2f7' rise='600' font='10'>  </span>${hsrpower}"))
+
+(defwidget genshin-widget []
+  (label :class "genshin"
+    :markup "<span color='#7aa2f7' rise='-500' font='10'>&#xf186; </span>${genshin}"))
+
+(defwidget battery-widget []
+  (label :class "battery" :markup battery))
+
+(defwidget disk-widget []
+  (label :class "disk" :markup disk))
+
+(defwidget memory-widget []
+  (label :class "memory" :markup memory))
+
+(defwidget backlight-widget []
+  (eventbox :class "backlight"
+            :onscroll "if [ {} = up ]; then brightnessctl set 5%+; else brightnessctl set 5%-; fi"
+    (label :class "backlight-label" :markup backlight)))
+
+(defwidget audio-widget []
+  (eventbox :class "audio"
+            :onscroll "if [ {} = up ]; then wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; else wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; fi"
+    (button :class "audio-btn"
+            :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      (label :class "audio-label" :markup audio))))
+
+(defwidget language-widget []
+  (label :class "language" :text language))
+
+(defwidget bar-widget []
+  (centerbox :class "bar" :orientation "h"
+    (box :class "modules-left" :halign "start" :space-evenly false
+      (workspaces-widget))
+    (box :class "modules-center" :orientation "h" :space-evenly false
+      (updates-widget)
+      (clock-widget)
+      (tray-widget))
+    (box :class "modules-right" :halign "end" :orientation "h" :space-evenly false
+      (gamemode-widget)
+      (hsrpower-widget)
+      (genshin-widget)
+      (battery-widget)
+      (disk-widget)
+      (memory-widget)
+      (backlight-widget)
+      (audio-widget)
+      (language-widget))))
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "26px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  (bar-widget))

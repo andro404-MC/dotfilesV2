@@ -23,7 +23,6 @@ return {
           "javascript",
           "typescript",
           "json",
-          "jsonc",
           "yaml",
           "toml",
           "python",

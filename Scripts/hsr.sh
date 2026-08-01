@@ -29,7 +29,7 @@ power() {
 
   CURRENT_POWER=$(echo "$NOTES" | jq -r '.data.current_stamina // "?"')
   MAX_POWER=$(echo "$NOTES" | jq -r '.data.max_stamina // "?"')
-  TIME_LEFT=$(biff span round -l hour "$(echo "$NOTES" | jq -r '.data.stamina_recover_time // "N/A"')s")
+  TIME_LEFT=$(bttf span round -l hour "$(echo "$NOTES" | jq -r '.data.stamina_recover_time // "N/A"')s")
 
   jq --unbuffered --compact-output --null-input \
     --arg text "$CURRENT_POWER/$MAX_POWER" \

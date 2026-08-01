@@ -12,15 +12,15 @@ set $READER zathura
 set $EXPLORER nemo
 set $VIDEO mpv
 set $IMAGE imv
-set $BROWSER vivaldi
+set $BROWSER helium-browser
 # set $MENU echo -n '["show"]' | socat - UNIX-CONNECT:/home/$USER/.cache/albert/ipc_socket
-set $MENU ~/.config/rofi/scripts/launcher_t4
+set $MENU ~/.config/rofi/scripts/launcher
 
 set $laptop eDP-1 
 
 ## Config
 # output HDMI-A-1 mode 1920x1080@100Hz bg ~/Pictures/Wallpapers/zelda.png fill allow_tearing yes max_render_time off
-output eDP-1 bg ~/Pictures/Wallpapers/pleiades-watchtower-1.png fill allow_tearing yes max_render_time off
+output eDP-1 bg ~/Pictures/Wallpapers/pleiades-watchtower-1.png fill
 
 client.focused          #1a1b26 #7aa2f7 #7aa2f7 #7aa2f7
 client.focused_inactive #1a1b26 #565f89 #565f89 #565f89
@@ -37,6 +37,7 @@ titlebar_padding 2
 gaps inner 4
 font scientifica 1
 seat * xcursor_theme Bibata-Modern-Classic 20
+seat * shortcuts_inhibitor disable
 
 bar {
   swaybar_command waybar
@@ -46,52 +47,55 @@ primary_selection disabled
 
 ### Input configuration
 input type:keyboard {
-  xkb_layout gb
+  xkb_layout us
 }
 
-input 0:14373:USB_OPTICAL_MOUSE {
-  accel_profile "flat"
-  pointer_accel -0.3
+input type:pointer {
+    accel_profile "flat"
+    pointer_accel -0.3
 }
 
+input type:touchpad {
+    events disabled_on_external_mouse
+    tap enabled
+    tap_button_map lrm
 
-input 6392:3993:USB_OPTICAL_MOUSE {
-  accel_profile "flat"
-  pointer_accel -0.3
-}
+    natural_scroll enabled
+    dwt enabled
 
-input 2:8:AlpsPS/2_ALPS_GlidePoint {
-  events disabled_on_external_mouse
-  tap enabled
-  natural_scroll enabled 
-  accel_profile "flat"
-  pointer_accel 0
-  dwt enabled
-  scroll_factor 0.2
+    click_method clickfinger
+    middle_emulation disabled
+
+    accel_profile adaptive
+    pointer_accel -0.15
+
+    scroll_method two_finger
+    scroll_factor 0.2
 }
 
 ##### Key bindings #####
 ## Apps
 bindsym $mod+q exec $TERMINAL
 bindsym $mod+a exec quist
+bindsym $mod+t exec ~/Scripts/get-rdp.sh
 bindsym $mod+SHIFT+q exec $ALTTERMINAL
 bindsym $mod+b exec $BROWSER
 bindsym $mod+n exec $TERMINAL -e rmpc
 bindsym $mod+e exec $TERMINAL -e $TERMEXPLORER
 bindsym $mod+Shift+e exec $EXPLORER
-bindsym $mod+p exec ~/.config/rofi/applets/bin/mpd.sh
+bindsym $mod+p exec ~/.config/rofi/scripts/mpd
 bindsym Ctrl+Shift+Escape exec $TERMINAL -e btop
 
-bindsym Shift+print exec ~/.config/rofi/applets/bin/screenshot-hypr.sh
+bindsym print exec ~/.config/rofi/scripts/screenshot
+bindsym Shift+print exec ~/Scripts/shot.sh
 
 bindsym $mod+space exec $MENU
-bindsym print exec ~/Scripts/shot.sh
 bindsym $mod+g exec ~/Scripts/gallery.sh
 bindsym $mod+d exec ~/Scripts/driveTool.sh
 bindsym $mod+r exec ~/Scripts/run.sh
-bindsym $mod+z exec rofi -show calc -modi calc -no-show-match -no-sort
-bindsym $mod+v exec rofi -modi clipboard:~/Scripts/cliphist-rofi.sh -show clipboard
-bindsym $mod+x exec bzmenu -l rofi
+bindsym $mod+z exec ~/.config/rofi/scripts/calc
+bindsym $mod+v exec /home/untemi/.config/rofi/scripts/clipboard
+bindsym $mod+x exec ~/.config/rofi/scripts/bzmenu
 bindsym $mod+delete exec pidof wlogout || wlogout -b 5
 bindsym $mod+semicolon exec rofimoji
 
@@ -174,7 +178,7 @@ bindswitch --reload --locked lid:on output $laptop power off
 bindswitch --reload --locked lid:off output $laptop power on
 
 # Mic
-bindsym Pause exec notify-send "Microphone $(amixer set Capture toggle | awk '/Mono: Capture/ {print $NF}')"
+# bindsym Pause exec notify-send "Microphone $(amixer set Capture toggle | awk '/Mono: Capture/ {print $NF}')"
 
 ### Autostart
 exec wl-paste --type text --watch cliphist store
@@ -183,42 +187,48 @@ exec wl-clip-persist --clipboard regular
 
 exec autotiling
 exec_always test -f ~/.Xresources && xrdb -merge ~/.Xresources
-exec swayidle lock "pidof lock.sh || ~/Scripts/lock.sh" \
+# exec swayidle -w \
+#     lock "pidof lock.sh || ~/Scripts/lock.sh" \
+#     before-sleep "(pidof lock.sh || ~/Scripts/lock.sh &); sleep 1; playerctl pause -a; mpc -q pause"
+exec swayidle lock "pidof hyprlock || ~/Scripts/lock.sh" \
               before-sleep "loginctl lock-session & playerctl pause -a & mpc -q pause"
 
 exec foot -s
-exec dunst -conf ~/.config/dunst/dunstrc-hypr
+exec dunst -conf ~/.config/dunst/dunstrc
 # exec otd-daemon
 exec mpd --no-daemon
 exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec udiskie -t
-exec flatpak run dev.vencord.Vesktop -- --start-minimized --ozone-platform-hint=auto --enable-features=AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoDecodeLinuxGL
-exec keepassxc
+exec glance-server
+
+exec flatpak run dev.vencord.Vesktop -- --start-minimized
+exec sleep 5 && keepassxc
 
 
 ### Rules but not laws :(
 workspace 1 gaps inner 0
-workspace 10 gaps inner 0
+
+for_window [app_id="vivaldi-stable"] move to workspace 1
+for_window [app_id="vivaldi-stable"] border none
 
 for_window [app_id="firefox"] move to workspace 1
-for_window [app_id="brave-browser"] move to workspace 1
-for_window [app_id="vivaldi-stable"] move to workspace 1
-for_window [app_id="helium"] move to workspace 1
-for_window [class="Brave-browser"] move to workspace 1
-for_window [class="Vivaldi-stable"] move to workspace 1
-for_window [app_id="thunderbird"] move to workspace 10
-
 for_window [app_id="firefox"] border none
-for_window [app_id="zen"] border none
-for_window [app_id="thunderbird"] border none
+
+for_window [app_id="brave-browser"] move to workspace 1
 for_window [app_id="brave-browser"] border none
-for_window [app_id="vivaldi-stable"] border none
+
+for_window [app_id="helium"] move to workspace 1
 for_window [app_id="helium"] border none
-for_window [class="Brave-browser"] border none
-for_window [class="Vivaldi-stable"] border none
+
+for_window [app_id="thunderbird"] move to workspace 10
+for_window [app_id="thunderbird"] border none
+
+for_window [app_id="zen"] border none
 for_window [app_id="albert"] move position 20ppt 18ppt
+
+for_window [title="Picture in picture"] floating enable, sticky enable, border none
 
 ## floating
 for_window [app_id="org.qbittorrent.qBittorrent"] floating enable
@@ -226,8 +236,6 @@ for_window [app_id="nm-connection-editor"] floating enable
 for_window [title="Unlock Database - KeePassXC"] floating enable
 for_window [title="KeePassXC - Browser Access Request"] floating enable
 for_window [app_id="engrampa"] floating enable
-
-for_window [app_id="chromium"] shortcuts_inhibitor disable
 
 ## Firefox
 for_window [app_id="firefox" title="Library"] floating enable
@@ -268,8 +276,8 @@ for_window [title = "Administrator privileges required"] floating enable
 for_window [app_id="nemo" title = ".*Properties"] floating enable
 
 ## Tearing
-for_window [class="wow.exe"] allow_tearing yes
-for_window [app_id="Terraria.bin.x86_64"] allow_tearing yes
+# for_window [class="wow.exe"] allow_tearing yes
+# for_window [app_id="Terraria.bin.x86_64"] allow_tearing yes
 
 ## HACK
 for_window [title=""] title_format "."

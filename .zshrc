@@ -25,8 +25,8 @@ unset VICMD
 
 # ─── Plugins ──────────────────────────────────────────────────────────────
 
+source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 zsh-defer source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-zsh-defer source "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 zsh-defer source "/usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
 zsh-defer source "$HOME/.local/share/zsh/plugins/doas-prefix.zsh"
 zsh-defer source "$HOME/.local/share/zsh/plugins/dotenv.zsh"
@@ -46,7 +46,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 alias ls="eza --icons -A --group-directories-first"
 alias ll="eza -Al --color=always --group-directories-first --git -h"
 alias tree="eza --color=always --icons --tree"
-alias grep="rg"
 alias gtop="doas intel_gpu_top"
 alias pmu="doas pacman -Syu"
 alias myip="curl ip.me"
@@ -141,7 +140,7 @@ function osc7-pwd() {
 }
 
 function bgrun() {
-    systemd-run --user "$@"
+    uwsm-app -t service -- $@
 }
 
 function git-com() {
@@ -190,20 +189,21 @@ function twitch() {
 function kick() {
   if [[ -z "$1" ]]; then
     echo "eeh, what?? who tf are you going to watch ??"
-    return
+    return 1
   fi
-  name="$1"
-  quality="${2:-720p60}"
+
+  local streamer="$1"
+  local quality="${2:-1080p60}"
+  local chat_name
+  read "chat_name?Twitch chat name: "
 
   bgrun streamlink \
-    https://kick.com/$name \
-    $quality \
+    "https://kick.com/$streamer" \
+    "$quality" \
     -p mpv \
     --kick-low-latency \
     --player-args="--loop-playlist=inf --loop-file=inf"
-
-  read "name?twitch chat name : "
-  bgrun com.chatterino.chatterino -c $name
+  bgrun com.chatterino.chatterino -c "$chat_name"
 }
 
 function clear_and_refresh() {

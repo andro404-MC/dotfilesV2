@@ -15,7 +15,7 @@ resin() {
 
   CURRENT_RESIN=$(echo "$NOTES" | jq -r '.data.current_resin // "?"')
   MAX_RESIN=$(echo "$NOTES" | jq -r '.data.max_resin // "?"')
-  TIME_LEFT=$(biff span round -l hour "$(echo "$NOTES" | jq -r '.data.resin_recovery_time // "N/A"')s")
+  TIME_LEFT=$(bttf span round -l hour "$(echo "$NOTES" | jq -r '.data.resin_recovery_time // "N/A"')s")
 
   # Properly format JSON output with variable expansion
   jq --unbuffered --compact-output --null-input \

@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
-export XDG_CURRENT_DESKTOP=sway
-
+export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export SDL_VIDEODRIVER=wayland
@@ -8,11 +7,10 @@ export CLUTTER_BACKEND=wayland
 export GDK_BACKEND="wayland,x11,*"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GTK_CSD=0
+export LIBVA_DRIVER_NAME=iHD
+export NO_AT_BRIDGE=1
 
 export TERM=foot
 export TERMINAL=foot
 
-LOG_DIR="$HOME/.local/share/sway"
-mkdir -p "$LOG_DIR"
-LOG_FILE="$LOG_DIR/$(date '+%d-%m-%y-%H-%M-%S').log"
-exec dbus-run-session sway >"$LOG_FILE" 2>&1
+exec sway

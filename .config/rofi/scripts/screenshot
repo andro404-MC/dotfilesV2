@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+prompt='Screenshot'
+mesg="DIR: $(xdg-user-dir PICTURES)/Screenshots"
+
+list_col=1
+list_row=5
+win_width=120px
+
+option_1=""
+option_2=""
+option_3=""
+option_4=""
+option_5=""
+
+rofi_cmd() {
+    rofi -theme-str "window {width: $win_width;}" \
+        -theme-str "listview {columns: $list_col; lines: $list_row;}" \
+        -theme-str 'textbox-prompt-colon {str: "";}' \
+        -dmenu -p "$prompt" -mesg "$mesg" -markup-rows \
+        -theme ~/.config/rofi/themes/applet.rasi
+}
+
+run_rofi() {
+    echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
+}
+
+time=$(date +%Y-%m-%d-%H-%M-%S)
+dir=$(xdg-user-dir SCREENSHOTS)
+file="Screenshot_${time}.png"
+
+if [[ ! -d "$dir" ]]; then
+    mkdir -p "$dir"
+fi
+
+countdown() {
+    for sec in $(seq "$1" -1 1); do
+        dunstify -t 1000 --replace=699 "Taking shot in : $sec"
+        sleep 1
+    done
+}
+
+shotnow() { grimshot savecopy screen --notify "$dir/$file"; }
+shotwin() { grimshot savecopy window --notify "$dir/$file"; }
+shotarea() { grimshot savecopy area --notify "$dir/$file"; }
+shot5() { countdown 5; shotnow; }
+shot10() { countdown 10; shotnow; }
+
+run_cmd() {
+    case "$1" in
+        --opt1) shotnow ;;
+        --opt2) shotarea ;;
+        --opt3) shotwin ;;
+        --opt4) shot5 ;;
+        --opt5) shot10 ;;
+    esac
+}
+
+chosen=$(run_rofi)
+case $chosen in
+    $option_1) run_cmd --opt1 ;;
+    $option_2) run_cmd --opt2 ;;
+    $option_3) run_cmd --opt3 ;;
+    $option_4) run_cmd --opt4 ;;
+    $option_5) run_cmd --opt5 ;;
+esac

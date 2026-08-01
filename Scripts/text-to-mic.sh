@@ -1,12 +1,12 @@
 #! /usr/bin/env bash
 
 on_interrupt() {
-  pactl unload-module $VirtualSpeaker
-  pactl unload-module $VirtualMic
+  pactl unload-module "$VirtualSpeaker"
+  pactl unload-module "$VirtualMic"
   exit 0
 }
 
-trap on_interrupt INT
+trap on_interrupt INT TERM
 
 # Load the virtual audio modules
 VirtualSpeaker=$(pactl load-module module-null-sink sink_name=virtual_speaker sink_properties=device.description=VirtualSpeaker)

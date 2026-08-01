@@ -11,7 +11,11 @@ if [ $? = 0 ]; then
   echo "Checked out dotfiles from https://github.com/andro404-MC/dotfilesV2"
 else
   echo "Moving existing dotfiles to ~/.dotfiles-backup"
-  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+  config checkout 2>&1 | grep -E "\s+\." | awk '{print $1}' |
+  while read -r f; do
+    mkdir -p ".dotfiles-backup/$(dirname "$f")"
+    mv "$f" ".dotfiles-backup/$f"
+  done
 fi
 
 # checkout dotfiles from repo
@@ -39,7 +43,7 @@ rustup default stable
 
 # PACKAGES
 echo "Installing Software"
-paru --needed -S --noconfirm autotiling base base-devel bemenu-wayland btop cfonts cliphist dunst engrampa eza fastfetch vivaldi vivaldi-ffmpeg-codecs foot fzf git go gtklock htop hyprlock imv keepassxc kvantum kvantum-qt5 less mpc mpd mpv ncmpcpp nemo neovim vim network-manager-applet networkmanager nm-connection-editor nodejs noto-fonts noto-fonts-cjk npm nsxiv nwg-look p7zip polkit-gnome qbittorrent qt5ct qt6ct ripgrep rofi-calc rofi-wayland starship sway swaybg swayidle swayosd thunderbird otf-font-awesome ttf-jetbrains-mono-nerd ttf-ubuntu-font-family udiskie unzip waybar waybar-module-pacman-updates-git wl-clip-persist wl-clipboard wlogout xdg-desktop-portal-wlr xdg-desktop-portal-gtk xdg-user-dirs xorg-xwayland yazi yt-dlp zathura zathura-cb zathura-ps zathura-djvu zathura-pdf-poppler zoxide zsh dash mdcat perl-image-exiftool pavucontrol ttf-apple-emoji xorg-xrdb tumbler ffmpegthumbnailer gamemode qt5-wayland flatpak nemo-engrampa wget fuse imagemagick sway-contrib slurp man-db bat at fd dragon-drop hunspell-en_US noise-suppression-for-voice pacman-contrib alsa-utils xorg-xev papirus-icon-theme ttf-ms-win10-auto gst-plugins-{base,good,bad,ugly} gst-libav zsh-autosuggestions zsh-history-substring-search zsh-fast-syntax-highlighting trashy hyprland hypridle hyprpaper luarocks wiki-tui rmpc mprocs-bin realtime-privileges espeak-ng caligula aria2 tree-sitter-cli pnpm libayatana-appindicator
+paru --needed -S --noconfirm autotiling base base-devel bemenu-wayland btop cfonts cliphist dunst engrampa eza fastfetch vivaldi vivaldi-ffmpeg-codecs foot fzf git go gtklock htop hyprlock imv keepassxc kvantum kvantum-qt5 less mpc mpd mpv ncmpcpp nemo neovim vim network-manager-applet networkmanager nm-connection-editor nodejs noto-fonts noto-fonts-cjk npm nsxiv nwg-look p7zip polkit-gnome qbittorrent qt5ct qt6ct ripgrep rofi-calc rofi-wayland starship sway swaybg swayidle swayosd thunderbird otf-font-awesome ttf-jetbrains-mono-nerd ttf-ubuntu-font-family udiskie unzip waybar waybar-module-pacman-updates-git wl-clip-persist wl-clipboard wlogout xdg-desktop-portal-wlr xdg-desktop-portal-gtk xdg-user-dirs xorg-xwayland yazi yt-dlp zathura zathura-cb zathura-ps zathura-djvu zathura-pdf-poppler zoxide zsh dash mdcat perl-image-exiftool pavucontrol ttf-apple-emoji xorg-xrdb tumbler ffmpegthumbnailer gamemode qt5-wayland flatpak nemo-engrampa wget fuse imagemagick sway-contrib slurp man-db bat at fd dragon-drop hunspell-en_US noise-suppression-for-voice pacman-contrib alsa-utils xorg-xev papirus-icon-theme ttf-ms-win10-auto gst-plugins-{base,good,bad,ugly} gst-libav zsh-autosuggestions zsh-history-substring-search zsh-fast-syntax-highlighting trashy hyprland hypridle hyprpaper luarocks wiki-tui rmpc mprocs-bin realtime-privileges espeak-ng caligula aria2 tree-sitter-cli pnpm libayatana-appindicator uwsm
 
 echo "Adding user to realtime groupe"
 sudo gpasswd -a $USER realtime
