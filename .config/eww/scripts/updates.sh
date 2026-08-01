@@ -12,6 +12,6 @@ if [ ! -f "$CACHE" ] || [ $(( $(date +%s) - $(stat -c %Y "$CACHE") )) -gt $STALE
   ( refresh ) &
 fi
 
-if [ -f "$CACHE" ] && [ "$(jq -r '.class // empty' "$CACHE" 2>/dev/null)" = "has-updates" ]; then
-  printf '<span color="#f7567e">󱍷 </span>'
-fi
+jq -c '{text: (if .class == "has-updates" then "<span color=\"#f7567e\">󱍷 </span>" else "" end),
+        tooltip: (.tooltip // "")}' "$CACHE" 2>/dev/null \
+  || printf '{"text":"","tooltip":""}'

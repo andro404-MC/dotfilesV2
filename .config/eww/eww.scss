@@ -41,6 +41,25 @@
   margin: 1px 4px;
 }
 
+/* tooltips (:tooltip props) live in their own GTK window, NOT in the .bar subtree,
+   so the scoped reset never touches them - restyle explicitly to match the tray
+   context menu (same font/colors/panel/border). */
+tooltip,
+tooltip.background {
+  background-color: #1a1b26;
+  border: 1px solid #2e3440;
+  border-radius: 4px;
+  padding: 2px;
+  color: #a9b1d6;
+}
+tooltip label,
+tooltip.background label {
+  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-size: 15px;
+  color: #a9b1d6;
+  padding: 2px 8px;
+}
+
 window.bar {
   background-color: #1a1b26;
 }
@@ -93,4 +112,39 @@ window.bar {
 
 .clock, .gamemode {
   color: #7aa2f7;
+}
+
+/* calendar tooltip (clock hover): grid rendered as a v-box of h-rows, each row
+   homogeneous (7 equal columns) so cells align across weeks */
+.calendar {
+  padding: 4px;
+}
+.cal-title {
+  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-size: 15px;
+  font-weight: bold;
+  color: #7aa2f7;
+  padding: 0 0 4px 0;
+}
+.cal-wd label {
+  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-size: 11px;
+  color: #565f89;
+  min-width: 14px;
+  padding: 0;
+}
+.cal-row label {
+  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-size: 12px;
+  color: #a9b1d6;
+  min-width: 14px;
+  padding: 0;
+}
+.cal-row label.cal-today {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+  border-radius: 3px;
+}
+.cal-row label.cal-dim {
+  color: #565f89;
 }
