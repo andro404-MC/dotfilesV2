@@ -28,21 +28,23 @@
 (deflisten language :initial ""
   `/home/untemi/.config/eww/scripts/language-watcher.sh`)
 
+(deflisten privacy :initial '{"text":"","tooltip":""}'
+  `privacy-monitor`)
+
 (defpoll gamemode :interval "5s" :initial ""
   `/home/untemi/Scripts/gamemode.sh`)
 
 (defpoll hsrpower :interval "200s" :initial '{"text":"","tooltip":""}'
-  `~/Scripts/hsr.sh power 2>/dev/null || printf '{"text":"","tooltip":""}'`)
+  `/usr/bin/timeout 20 /home/untemi/Scripts/hsr.sh power 2>/dev/null || printf '{"text":"","tooltip":""}'`)
 
 (defpoll genshin :interval "200s" :initial '{"text":"","tooltip":""}'
-  `/home/untemi/Scripts/genshin.sh resin 2>/dev/null || printf '{"text":"","tooltip":""}'`)
+  `/usr/bin/timeout 20 /home/untemi/Scripts/genshin.sh resin 2>/dev/null || printf '{"text":"","tooltip":""}'`)
 
 (defwidget workspaces-widget []
   (box :class "workspaces" :orientation "h" :space-evenly false
     (for ws in workspaces
       (button :class { ws.urgent ? "ws-urgent" : (ws.focused ? "ws-active" : "ws-inactive") }
               :onclick "swaymsg workspace ${ws.num > 0 ? ws.num : ws.name}"
-              :cursor "pointer"
         (label :text {ws.display})))))
 
 (defwidget clock-widget []
@@ -65,10 +67,14 @@
     (label :class "updates" :markup {updates.text})))
 
 (defwidget tray-widget []
-  (systray :class "tray" :spacing 3 :icon-size 17 :cursor "pointer"))
+  (systray :class "tray" :spacing 3 :icon-size 17))
 
 (defwidget gamemode-widget []
   (label :class "gamemode" :text gamemode :tooltip "Gamemode active"))
+
+(defwidget privacy-widget []
+  (label :class {privacy.text == "" ? "privacy" : "privacy privacy-active"}
+         :markup {privacy.text} :tooltip {privacy.tooltip}))
 
 (defwidget hsrpower-widget []
   (label :class "hsrpower"
@@ -97,11 +103,10 @@
 
 (defwidget audio-widget []
   (eventbox :class "audio"
-            :onscroll "if [ {} = up ]; then wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; else wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; fi"
+            :onscroll "if [ {} = up ]; then wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+; else wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; fi"
             :cursor "pointer"
     (button :class "audio-btn"
             :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            :cursor "pointer"
       (label :class "audio-label" :markup {audio.text} :tooltip {audio.tooltip}))))
 
 (defwidget language-widget []
@@ -117,6 +122,7 @@
       (tray-widget))
     (box :class "modules-right" :halign "end" :orientation "h" :space-evenly false
       (gamemode-widget)
+      (privacy-widget)
       (hsrpower-widget)
       (genshin-widget)
       (battery-widget)

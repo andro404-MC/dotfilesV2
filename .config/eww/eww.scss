@@ -1,42 +1,50 @@
-.bar,
-.bar > box,
-.workspaces, .workspaces *,
-.clock, .updates, .gamemode, .hsrpower, .genshin, .battery, .disk, .memory, .language,
-.backlight, .backlight *,
-.audio, .audio * {
-  all: unset;
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
-  font-size: 15px;
-  color: #a9b1d6;
-}
+$font: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+$bg: #1a1b26;
+$panel: #2e3440;
+$fg: #a9b1d6;
+$dim: #565f89;
+$muted: #c5c8c6;
+$accent: #7aa2f7;
+$red: #f7567e;
 
-/* NOTE: `.tray` is deliberately NOT in the reset above. dbusmenu_gtk3 attaches the
+/* NOTE: `.tray` is deliberately NOT in the reset below. dbusmenu_gtk3 attaches the
    tray's context menu to the tray EventBox (`gtk_menu_attach_to_widget`), which puts
    the menu in `.tray`'s CSS subtree - so resetting `.tray *` would strip the menu's
    theme background too. Keeping the tray out of the reset leaves the menu styled by
    the GTK theme's own defaults. */
+.bar,
+.bar > box,
+.workspaces, .workspaces *,
+.clock, .updates, .gamemode, .privacy, .hsrpower, .genshin, .battery, .disk, .memory, .language,
+.backlight, .backlight *,
+.audio, .audio * {
+  all: unset;
+  font-family: $font;
+  font-size: 15px;
+  color: $fg;
+}
 
 /* tray context menu: explicitly restyle it (not a reset, concrete values) so it
    matches the bar's small scientifica look instead of the theme's big Ubuntu font. */
 .tray menu {
-  background-color: #1a1b26;
-  border: 1px solid #2e3440;
+  background-color: $bg;
+  border: 1px solid $panel;
   padding: 2px;
 }
 .tray menu menuitem {
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-family: $font;
   font-size: 15px;
-  color: #a9b1d6;
+  color: $fg;
   padding: 2px 8px;
 }
 .tray menu menuitem:hover {
   background-color: rgba(122, 162, 247, 0.15);
 }
 .tray menu menuitem:disabled {
-  color: #565f89;
+  color: $dim;
 }
 .tray menu separator {
-  background-color: #2e3440;
+  background-color: $panel;
   min-height: 1px;
   margin: 1px 4px;
 }
@@ -46,26 +54,26 @@
    context menu (same font/colors/panel/border). */
 tooltip,
 tooltip.background {
-  background-color: #1a1b26;
-  border: 1px solid #2e3440;
+  background-color: $bg;
+  border: 1px solid $panel;
   border-radius: 4px;
   padding: 2px;
-  color: #a9b1d6;
+  color: $fg;
 }
 tooltip label,
 tooltip.background label {
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-family: $font;
   font-size: 15px;
-  color: #a9b1d6;
+  color: $fg;
   padding: 2px 8px;
 }
 
 window.bar {
-  background-color: #1a1b26;
+  background-color: $bg;
 }
 
 .bar {
-  background-color: #1a1b26;
+  background-color: $bg;
   min-height: 26px;
 }
 
@@ -74,7 +82,7 @@ window.bar {
   min-width: 17px;
   padding: 0px 6px;
   border-radius: 0px;
-  color: #c5c8c6;
+  color: $muted;
   background: transparent;
 }
 .workspaces button label {
@@ -84,12 +92,12 @@ window.bar {
   color: inherit;
 }
 .workspaces button.ws-active {
-  color: #1a1b26;
-  background: #7aa2f7;
+  color: $bg;
+  background: $accent;
 }
 .workspaces button.ws-urgent {
-  color: #1a1b26;
-  background: #f7567e;
+  color: $bg;
+  background: $red;
 }
 
 /* module spacing (`.updates` intentionally omitted: waybar's #custom/updates is
@@ -98,20 +106,36 @@ window.bar {
   margin: 0px 6px;
   margin-bottom: 1px;
 }
-.gamemode {
+.gamemode, .privacy {
   margin-bottom: 1px;
+}
+
+/* privacy indicators (mic/camera/screen recording); icon colors come from the
+   markup spans in privacy.sh, matching the blue used by the other icons */
+.privacy {
+  color: $accent;
+}
+
+/* active privacy pill (waybar's #privacy): blue bg with dark text, only painted
+   when at least one indicator is live (yuck adds the class conditionally) */
+.privacy-active {
+  color: #1a1b26;
+  background-color: $accent;
+  border-radius: 9px;
+  padding: 2px 5px;
+  margin: 3px 6px;
 }
 
 /* keyboard layout box */
 .language {
-  background: #2e3440;
+  background: $panel;
   padding: 0px 6px 0px 8px;
   margin-left: 5px;
   margin-right: 0px;
 }
 
 .clock, .gamemode {
-  color: #7aa2f7;
+  color: $accent;
 }
 
 /* calendar tooltip (clock hover): grid rendered as a v-box of h-rows, each row
@@ -120,31 +144,31 @@ window.bar {
   padding: 4px;
 }
 .cal-title {
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-family: $font;
   font-size: 15px;
   font-weight: bold;
-  color: #7aa2f7;
+  color: $accent;
   padding: 0 0 4px 0;
 }
 .cal-wd label {
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-family: $font;
   font-size: 11px;
-  color: #565f89;
+  color: $dim;
   min-width: 14px;
   padding: 0;
 }
 .cal-row label {
-  font-family: "scientifica", "Font Awesome 7 Free Solid", "FantasqueSansM Nerd Font", "Stick";
+  font-family: $font;
   font-size: 12px;
-  color: #a9b1d6;
+  color: $fg;
   min-width: 14px;
   padding: 0;
 }
 .cal-row label.cal-today {
-  background-color: #7aa2f7;
-  color: #1a1b26;
+  background-color: $accent;
+  color: $bg;
   border-radius: 3px;
 }
 .cal-row label.cal-dim {
-  color: #565f89;
+  color: $dim;
 }
