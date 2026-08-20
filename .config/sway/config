@@ -20,7 +20,7 @@ set $laptop eDP-1
 
 ## Config
 # output HDMI-A-1 mode 1920x1080@100Hz bg ~/Pictures/Wallpapers/zelda.png fill allow_tearing yes max_render_time off
-output eDP-1 bg ~/Pictures/Wallpapers/pleiades-watchtower-1.png fill
+output * bg ~/Pictures/Wallpapers/pleiades-watchtower-3.png fill
 
 client.focused          #1a1b26 #7aa2f7 #7aa2f7 #7aa2f7
 client.focused_inactive #1a1b26 #565f89 #565f89 #565f89
@@ -168,6 +168,7 @@ bindsym $mod+m layout toggle tabbed split
 bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 10
 bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -10
 bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && swayosd-client --input-volume mute-toggle
 
 # Brightness
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness +5

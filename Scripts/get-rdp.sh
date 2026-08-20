@@ -33,7 +33,7 @@ password=$(get_value password)
 drive=$(get_value drive-mount)
 
 cmd=(
-  wlfreerdp3
+  xfreerdp3
   /f
   /dynamic-resolution
   /clipboard
